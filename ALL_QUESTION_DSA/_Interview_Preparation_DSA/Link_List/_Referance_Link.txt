@@ -1,0 +1,22 @@
+1)all problem LinkList
+https://oj.masaischool.com/contest/3632/
+
+db.user.find({id:{$lt:100}})
+
+2)inser insertAtPosition ---> 
+https://oj.masaischool.com/contest/3632/problem/03
+
+**3)open contest not solve all Problem LinkList (must solve for practice)
+https://oj.masaischool.com/contest/2623/problems
+
+4) LinkList @all solve problem on old LMS
+https://oj.masaischool.com/contest/2623/problems
+
+below advance LL Problem (palindrom, LLcycle, add1, merge 2 LL )
+https://oj.masaischool.com/contest/2632/problems
+
+below (add 2 LL , remove duplicate in LL)
+https://oj.masaischool.com/contest/2646/problems
+
+old LMS All Problem LinkList 
+https://lms.masaischool.com/calendar#view_name=month&view_start=2022-01-01

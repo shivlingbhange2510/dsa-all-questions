@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>API Integration </h1>
+
+<div id="container">
+
+</div>
+
+    <script>
+
+        var new_data;
+        let url='https://swapi.dev/api/films/';
+        let url2 = `https://reqres.in/api/users?page=2`;
+        let myReq=fetch(url2)
+        .then(function(res){
+            // console.log(res.json().data)
+            let x =res.json().then(function(res){
+                console.log('data is ', res.data)
+                new_data=res.data;
+                displayData(new_data);
+            });
+            console.log(x)
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+
+        function displayData(data){
+            let user = data.map((a,b)=>{
+                let container = document.createElement('container')
+                let profileCard = document.createElement('div');
+                let imgis=document.createElement('img')
+                imgis.src=a.avtar;
+                let name = document.createElement('p');
+                name=a.first_name + a.last_name;
+                profileCard.append(imgis, name)
+            })
+        }
+
+    </script>
+</body>
+</html>

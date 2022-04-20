@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        button {
+            width: 100px;
+            height: 30px;
+            background-color: green;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+        }
+
+        #navbar {
+            width: 100%;
+            height: 50px;
+            background-color: magenta;
+
+        }
+
+        #right>div {
+            display: inline-block;
+            float: right;
+            text-align: content;
+            margin-right: 20px;
+        }
+
+        p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id='right'>
+            <div> <a href="file:///C:/Users/Dell/Desktop/MASAI_PROGRAM/HTML_ASSESMENT/Movies/index.html"> Home </a></div>
+            <div> <a href="file:///C:/Users/Dell/Desktop/MASAI_PROGRAM/HTML_ASSESMENT/Movies/login.html"> Login </a></div>
+            <div> <a href="#"> Signup </a></div>
+        </div>
+
+    </div>
+    <div id="main">
+        <div>
+            <label for="email"> Enter EmialId</label>
+        </div>
+        <div>
+            <input type="text" id="email">
+        </div>
+        <div>
+            <p id="emailerror"></p>
+        </div>
+        <div>
+            <label for="password"> Enter Password</label>
+        </div>
+        <div>
+            <input type="password" id="password">
+        </div>
+        <div>
+            <p id="passworderror"></p>
+        </div>
+        <br>
+        <div>
+            <button id="submit" onclick="chek()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let username = 'shivlingbhange';
+        let password = 'masai@123';
+
+        let email2 = document.getElementById('email');
+        let password2 = document.getElementById('password');
+        function chek() {
+            console.log('first', email2.value, 'ppp ', password2.value)
+            if (email2.value != username) {
+                let er = document.getElementById('emailerror').textContent = 'please enter valid emailID'
+
+            }
+
+            if (password2.value != password) {
+                let pass = document.getElementById('passworderror');
+                pass.innerHTML = 'please enter valid password';
+            }
+        }
+    </script>
+</body>
+
+</html>

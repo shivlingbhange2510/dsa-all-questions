@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <h1>Api </h1>
+        <button onclick='fetchApi()''>check </button>
+    </div>
+    
+<script>
+    let key = `78b145ba9a214e3aac66ccd17e3fb95d`;
+    let url2="https://newsapi.org/v2/everything?q=keyword&apiKey=78b145ba9a214e3aac66ccd17e3fb95d";
+
+    async function fetchApi() {
+        let res = await fetch(url2);
+        let d = await res.json();
+        console.log('data ', d)
+    }
+
+    var url = 'https://newsapi.org/v2/everything?' +
+          'q=Apple&' +
+          'from=2022-02-14&' +
+          'sortBy=popularity&' +
+          'apiKey=78b145ba9a214e3aac66ccd17e3fb95d';
+
+var req = new Request(url);
+
+fetch(req)
+    .then(function(response) {
+        // console.log(response.json());
+    }).then(function(data){
+        console.log('ddd ', data)
+    })
+</script>
+
+</body>
+</html>

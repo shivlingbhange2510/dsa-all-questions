@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <title>Document</title>
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table {
+            margin-top: 50px;
+        }
+
+        td>button {
+            cursor: pointer;
+            background-color: red;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main2">
+        <input type="text" placeholder="item name" id="item" />
+        <input type="number" placeholder="quantity" id="quantity" />
+        <button onclick="addItem()">submit</button>
+
+
+        <div id="main">
+            <table id='dsTable'>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="body2"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let body1 = document.getElementById("body2");
+        let h = 0;
+
+
+
+        function show(x, y) {
+            h++;
+
+            let row = document.createElement("tr");
+            row.setAttribute("id", `${"r" + h}`);
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            let add = document.createElement("button");
+            row.setAttribute("onclick", `deleteR()`)
+            // var element = document.getElementById("element-id");
+            // element.parentNode.removeChild(element);
+            row.setAttribute("id", `${"r" + Math.random()}`);
+            add.innerHTML = "Delete Item";
+            td1.textContent = x;
+            td2.textContent = y;
+            td3.append(add);
+            row.append(td1, td2, td3);
+            body1.appendChild(row);
+            // row.addEventListener('click', hide());
+        }
+
+        if (localStorage.getItem("product_arr") == null) {
+            //    var item = [];
+            localStorage.setItem("product_arr", JSON.stringify([]));
+        }
+        let container = document.getElementById("bodyIs");
+        function addItem() {
+            let quantity = document.getElementById("quantity").value;
+            let item2 = document.getElementById("item").value;
+            let obj = {};
+            obj["quantity"] = quantity;
+            obj["item2"] = item2;
+            let item = JSON.parse(localStorage.getItem("product_arr"));
+            item.push(obj);
+            localStorage.setItem("product_arr", JSON.stringify(item));
+            let y2 = JSON.parse(localStorage.getItem("product_arr"));
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+
+            document.getElementById("quantity").value = "";
+            document.getElementById("item").value = "";
+
+            add(y2);
+        }
+        let y2 = JSON.parse(localStorage.getItem("product_arr"));
+
+        y2.forEach(function (k, id) {
+            if (k.quantity != "" && k.item2 != "") {
+                show(k.quantity, k.item2);
+            }
+        });
+
+        function add() {
+            y2 = JSON.parse(localStorage.getItem("product_arr"));
+            body1.textContent = "";
+
+            y2.forEach(function (k) {
+                if (k.quantity != "" && k.item2 != "") {
+                    show(k.quantity, k.item2);
+                }
+            });
+        }
+
+        function deleteRow(row) {
+            var d = row.parentNode.parentNode.rowIndex;
+            document.getElementById('dsTable').deleteRow(d);
+        }
+        function deleteR() {
+            $("#dsTable tr").click(function () {
+                p = $(this).index();
+                console.log('pppp ', p);
+                let arr = JSON.parse(localStorage.getItem("product_arr"));
+                console.log(arr.length)
+                arr.splice(p, 1)
+                console.log('after ', arr.length)
+                localStorage.setItem("product_arr", JSON.stringify(arr));
+                window.location.reload()
+            })
+
+        }
+    </script>
+</body>
+
+</html>

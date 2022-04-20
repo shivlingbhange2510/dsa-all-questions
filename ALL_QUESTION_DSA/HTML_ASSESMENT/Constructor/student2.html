@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100px;
+            height: 30px;
+            background-color: green;
+            text-align: center;
+            color: white;
+            border: none;
+        }
+
+        #main-container>div {
+            display: inline-block;
+        }
+
+        #main2 {
+            margin-left: 30%;
+            margin-top: -50%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #main2 {
+            position: relative;
+            top: 14%;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main-container">
+        <div>
+            <div>
+                <label for="name">Student Name</label>
+            </div>
+            <div>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="number">Enter Number</label>
+            </div>
+            <div>
+                <input type="number" id="number">
+            </div>
+            <div>
+                <label for="City">Enter City</label>
+            </div>
+            <div>
+                <input type="text" id="city">
+            </div>
+            <br>
+            <div>
+                <button onclick="pushDetilsInArray()">Submit</button>
+            </div>
+        </div>
+
+        <div id="main2">
+            <table id="table_show">
+                <thead>
+                    <tr>
+                        <th>Name </th>
+                        <th>Number</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    if ((localStorage.getItem('student_details')) == null) {
+        localStorage.setItem('student_details', JSON.stringify([]))
+    }
+
+    function StudentDetails(name, city, number) {
+        this.name = name;
+        this.city = city;
+        this.number = number;
+    }
+
+    function pushDetilsInArray() {
+        let name = document.getElementById('name');
+        let city = document.getElementById('city');
+        let number = document.getElementById('number');
+        let studentArr = JSON.parse(localStorage.getItem('student_details'))
+        name = name.value;
+        city = city.value
+        number = number.value
+        let d = new StudentDetails(name, city, number)
+
+
+
+        studentArr.push(d);
+        localStorage.setItem('student_details', JSON.stringify(studentArr));
+
+        let table_body = document.getElementById("table_body");
+
+        let arr = JSON.parse(localStorage.getItem("student_details"));
+
+        arr.forEach(function (a, b) {
+            let row = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            td1.textContent = a.name;
+            td2.textContent = a.number;
+            td3.textContent = a.city;
+            row.append(td1, td2, td3);
+            table_body.append(row)
+
+
+
+        })
+        document.getElementById('name').value = '';
+        document.getElementById('city').value = '';
+        document.getElementById('number').value = ''
+
+    }
+</script>

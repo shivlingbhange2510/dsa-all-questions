@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100px;
+            height: 30px;
+            background-color: green;
+            text-align: center;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="mai">
+        <div>
+            <label for="name">Student Name</label>
+        </div>
+        <div>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label for="number">Enter Number</label>
+        </div>
+        <div>
+            <input type="number" id="number">
+        </div>
+        <div>
+            <label for="City">Enter City</label>
+        </div>
+        <div>
+            <input type="text" id="city">
+        </div>
+        <br>
+        <div>
+            <button onclick="pushDetilsInArray()">Submit</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    if ((localStorage.getItem('student_details')) == null) {
+        localStorage.setItem('student_details', JSON.stringify([]))
+    }
+
+    function StudentDetails(name, city, number) {
+        this.name = name;
+        this.city = city;
+        this.number = number;
+    }
+
+    function pushDetilsInArray() {
+        let name = document.getElementById('name');
+        let city = document.getElementById('city');
+        let number = document.getElementById('number');
+        let studentArr = JSON.parse(localStorage.getItem('student_details'))
+        name = name.value;
+        city = city.value
+        number = number.value
+        let d = new StudentDetails(name, city, number)
+
+
+
+        studentArr.push(d);
+        localStorage.setItem('student_details', JSON.stringify(studentArr));
+        document.getElementById('name').value = '';
+        document.getElementById('city').value = '';
+        document.getElementById('number').value = ''
+
+    }
+</script> 

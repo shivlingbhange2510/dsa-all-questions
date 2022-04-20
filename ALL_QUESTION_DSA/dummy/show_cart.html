@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="amazon.css">
+    <title>Document</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        body {
+            margin: 0px;
+            margin-left: 20px;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            /* border: 1px solid gray; */
+        }
+
+        input {
+            height: 20px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            width: 120px;
+            height: 30px;
+            border: none;
+            text-align: center;
+            margin: auto;
+        }
+
+
+        #prod_card {
+            border: 1px solid gray;
+        }
+
+        #cartCount {
+            margin-right: 20px;
+            color: blue;
+        }
+        a {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Hi this is show cart</h1>
+        <div>
+            <a href="file:///C:/Users/Dell/Desktop/MASAI_PROGRAM/HTML_ASSESMENT/Amazon_Clone/amazon.html">Home</a>
+          
+
+            <!-- <button id="k" onclick="callApi()">call api </button> -->
+            <a href="file:///C:/Users/Dell/Desktop/MASAI_PROGRAM/HTML_ASSESMENT/Amazon_Clone/payment.html">Make Payment</a>
+
+            <a href="file:///C:/Users/Dell/Desktop/MASAI_PROGRAM/HTML_ASSESMENT/show_cart.html"
+            style="float:right;margin-right:30px"> cart <span id='cartCount'> </span> </a>
+            <h2>Total Ammount : <span id='total'></span> </h2>
+            <h5>After Discount Ammount : <span id='afterSicount'></span> </h5>
+            <div>
+                <label for="apply-cupon"> Apply Your Cupon : </label>
+            </div>
+            <div>
+                <input type="text" id='cuponCode'>
+                <button onclick="applyCupon()">Apply Cupon</button>
+            </div>
+            <div id="container">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let container = document.getElementById('container');
+        let cartCount = document.getElementById('cartCount');
+        let totalAmmount = document.getElementById('total');
+        let cuponCode = document.getElementById('cuponCode');
+        let price = 0;
+
+        function displayProduct() {
+            container.innerHTML = '';
+            let data = JSON.parse(localStorage.getItem('cart'))
+            data.forEach((k, i) => {
+                let prodCard = document.createElement('div');
+                prodCard.setAttribute('id', 'prod_card')
+                let image = document.createElement('img');
+                let name = document.createElement('p');
+                name.setAttribute('id', 'product-title')
+                let hr = document.createElement('hr')
+                let price = document.createElement('p');
+                let addToCart = document.createElement('button');
+                prodCard.setAttribute('id', 'prodCart')
+                addToCart.textContent = 'Remove Product'
+                addToCart.onclick = function () {
+                    removeProductCart(k);
+                    window.location.reload();
+                }
+
+
+                image.src = k.image;
+                name.textContent = k.title;
+                price.textContent = k.price + ' Inr';
+                prodCard.append(image, name, price, addToCart, hr);
+                container.append(prodCard)
+
+            })
+
+
+            let cart = JSON.parse(localStorage.getItem('cart'))
+            let cartCount = document.getElementById('cartCount');
+            cartCount.textContent = cart.length
+            totalPriceInCartItem(cart)
+        }
+        function removeProductCart(k) {
+            console.log('remove  product ', k)
+            let cart = JSON.parse(localStorage.getItem('cart'))
+            console.log('id is ', k.id)
+
+            let findProduct = cart.findIndex((prod) => {
+                return prod.id == k.id
+            })
+            console.log('findProduct ', findProduct)
+            cart.splice(findProduct, 1)
+            localStorage.setItem('cart', JSON.stringify(cart))
+            cart = JSON.parse(localStorage.getItem('cart'))
+            totalPriceInCartItem(cart)
+        }
+        function totalPriceInCartItem(data) {
+
+            price = data.reduce((acc, cur) => {
+                return acc + cur.price
+            }, 0)
+            console.log('cuponCode.value  ', cuponCode.value)
+            // discountPrice =
+            totalAmmount.textContent = price.toFixed(2);
+
+
+        }
+        function applyCupon() {
+            console.log('changed pp', totalAmmount.innerHTML, 'price in applyCupon ', price);
+            if (cuponCode.value == 'masai30') {
+                price = price - price * 0.2;
+                totalAmmount.textContent = price.toFixed(2);
+            } else {
+                totalAmmount.textContent = price.toFixed(2);
+            }
+        }
+        displayProduct()
+    </script>
+</body>
+
+</html>

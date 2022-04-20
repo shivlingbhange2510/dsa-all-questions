@@ -1,0 +1,27 @@
+
+#prodCart:hover{
+    color: blue;
+    cursor: pointer;
+    z-index: 1000;
+    width:98%;
+}
+button:hover{
+    background-color: green;
+    color: white;
+  
+}
+/* img:hover{
+
+} */
+
+button{
+    text-align: center;
+    justify-items: center;
+    margin: 0px 0px 0px 20%;
+}
+#total{
+    font-size: 20px;
+}
+#product-title{
+    height:50px
+}

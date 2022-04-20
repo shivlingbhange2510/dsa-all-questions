@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #flex1 {
+            display: inline-block;
+            /* border: 1% solid red; */
+            width: 100%;
+            /* flex-direction: row; */
+        }
+
+        #flex1>img {
+            padding-top: 0px;
+        }
+
+        #flex1>div {
+            height: 30px;
+            display: inline-block;
+            margin-top: 10px;
+            width: 20%;
+            /* background-color:red; */
+        }
+
+        #flex1>div:nth-child(2) {
+            color: red;
+            width:300px;
+
+        }
+        #flex1>div:nth-child(1n) {
+           
+            padding-left:10px;
+
+        }
+
+        #flex1>div::first-letter {
+            text-transform: capitalize;
+        }
+
+        #flex1>div:nth-child(3) {
+         color:gray;
+        }
+        #flex1>div:nth-child(4) {
+         color:gray;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: blueviolet;
+            text-align: center;
+          
+         
+        }
+        #line{
+           border: 2px solid black;
+           width:100px;
+         display:center;
+         text-align: center;
+         margin:auto;
+           /* height:20px; */
+        }
+        p{
+            text-align: center;
+        }
+        #flex1>div:first-child{
+            color:black;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .head>div{
+            text-transform: uppercase;
+            color:gray;
+        }
+        #main-div{
+            margin-left:10%;
+        }
+        #first-table{
+            margin:0% 5% 0% 5% ;
+            background-color: rgb(240, 232, 232);
+            padding-left:10%
+        }
+
+    </style>
+</head>
+
+<body>
+    <div >
+
+        <h1>Compare Pricing</h1>
+        <div id='line'></div>
+        <p>Instamojo's overall costs compare to other modern platforms & traditional getways.</p>
+
+        
+        <div id='first-table'>
+            <div id='flex1' class='head'>
+                <div> fees & other charges</div>
+                <div> <img style='width: 100px;height:autopx'
+                        src='https://www.instamojo.com/wp-content/uploads/2021/03/logo_instamojo.png' alt="insta">
+                </div>
+
+                <div> modern platforms</div>
+                <div>traditional getways</div>
+
+            </div>
+            <div id='flex1'>
+                <div>setup free</div>
+                <div>free</div>
+                <div>0 to 10000 / year</div>
+                <div>2,5000</div>
+
+            </div>
+            <div id='flex1'>
+
+                <div>Annual Maintanaces</div>
+                <div>1,0000 to 25,000 / year</div>
+                <div>1,0000 to 25,000 / year</div>
+                <div>1,0000 to 25,000 / year</div>
+
+            </div>
+            <div id='flex1'>
+                <div> Minimum Commitment</div>
+                <div>No commitment </div>
+                <div>varries</div>
+                <div>up to 1,00,000 / months</div>
+            </div>
+        </div>
+
+        <div id='second-table'>
+            <h1>No Hidden Cost</h1>
+            <div id='line'></div>
+          <p>Cost of time and effort spend increases hidden costs. But not on Instamojo</p>
+            <div id='first-table'>
+                <div id='flex1' class='head'>
+                    <div> cost</div>
+                    <div> <img style='width: 100px;height:autopx'
+                            src='https://www.instamojo.com/wp-content/uploads/2021/03/logo_instamojo.png' alt="insta">
+                    </div>
+
+                    <div> modern platforms</div>
+                    <div>traditional getways</div>
+
+                </div>
+                <div id='flex1'>
+                    <div>develoer cost for Integration</div>
+                    <div>no Needed</div>
+                    <div>1 Lakh+</div>
+                    <div>1 Lakh+</div>
+
+                </div>
+                <div id='flex1'>
+
+                    <div>time to get started   </div>
+                    <div>3-5 minutes</div>
+                    <div>1-4 weeks</div>
+                    <div>4-8 weeks</div>
+
+                </div>
+                <div id='flex1'>
+                    <div> legal Costs of Aggreements</div>
+                    <div>Not Needed </div>
+                    <div>varries</div>
+                    <div>1 Lakh+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

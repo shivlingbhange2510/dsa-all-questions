@@ -1,0 +1,2 @@
+1) Binary serach basic
+https://oj.masaischool.com/contest/2657/problems

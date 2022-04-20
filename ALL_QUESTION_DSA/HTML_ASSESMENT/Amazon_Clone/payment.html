@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select {
+            width: 30%;
+        }
+
+        #payment {
+            margin-left: 20px;
+
+        }
+
+        option {
+            width: 40px;
+        }
+
+        #selectOption1>div {
+            display: inline-block;
+            /* margin-left: 20px; */
+
+        }
+
+        label {
+            padding-top: 10px;
+        }
+
+        #selectOption>div {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 30%;
+            margin-top: 20px;
+        }
+
+        #name {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="payment">
+        <a href="file:///C:/Users/Dell/Desktop/MASAI_PROGRAM/HTML_ASSESMENT/Amazon_Clone/amazon.html"> <h3>Home</h3> </a>
+
+        <h1>Enter debitcard Details</h1>
+        <div>
+            <label for="debitcardNo">Enter Debit Card Number</label>
+        </div>
+        <div>
+            <input maxlength='16' type="number" id='debitcardNo'>
+        </div>
+        <div id="name">
+            <label for="debitcardNo">Name On Card</label>
+        </div>
+        <div>
+            <input maxlength='16' type="text" id='debitcardNo'>
+        </div>
+        <div id='selectOption'>
+            <div>
+                <label for="expiredDate">Select Expire Date :</label>
+            </div>
+            <div>
+                <select id="expiredDate">
+
+                </select>
+            </div>
+            <div>
+                <label for="expiredMonth">Select Expire Month :</label>
+            </div>
+            <div>
+                <select id="expiredMonth">
+
+                </select>
+            </div>
+        </div>
+        <div id='selectOption'>
+
+        </div>
+    </div>
+    <script>
+        let month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        let year = [];
+        let count = new Date().getFullYear();
+        let expiredDate = document.getElementById('expiredDate')
+        let expiredMonth = document.getElementById('expiredMonth');
+        console.log('count ', count)
+        for (let i = 0; i < 10; i++) {
+            year.push(count);
+            count++;
+        }
+        console.log('year ', year)
+        expiredDate = document.getElementById('expiredDate');
+
+        year.forEach((a, b) => {
+            let option = document.createElement('option');
+            option.textContent = a;
+
+            expiredDate.append(option)
+        })
+
+        month.forEach((a, b) => {
+            let option = document.createElement('option');
+            option.textContent = a;
+
+            expiredMonth.append(option)
+        })
+
+    </script>
+</body>
+
+</html>

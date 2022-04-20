@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="amazon.css">
+    <title>Document</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        body {
+            margin: 0px;
+            margin-left: 20px;
+        }
+
+        img {
+            width: 90%;
+            height: 200px;
+            object-fit: cover;
+            /* border: 1px solid gray; */
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            width: 150px;
+            height: 30px;
+            cursor: pointer;
+            border: none;
+            margin-bottom: 0px;
+        }
+
+        #prod_card {
+            border: 1px solid gray;
+        }
+
+        #cartCount {
+            margin-right: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="k" onclick="callApi()">call api </button>
+        <select onchange=" filterData()" id="filterProduct">
+            <option value="0-50">0-50</option>
+            <option value="51-150">51-150</option>
+            <option value="151-10000">151-10000</option>
+
+        </select>
+
+        <select onchange="sortProducts()" id="sortProduct">
+            <option value="High-Low">High-Low</option>
+            <option value="Low-High">Low-High</option>
+
+
+        </select>
+        <a href="file:///C:/Users/Dell/Desktop/MASAI_PROGRAM/HTML_ASSESMENT/Amazon_Clone/show_cart.html"
+            style="float:right;margin-right:30px"> cart <span id='cartCount'> </span> </a>
+        <div id="container">
+
+        </div>
+    </div>
+
+    <script>
+        let url = `https://fakestoreapi.com/products`;
+        let container = document.getElementById('container');
+        let cartCount = document.getElementById('cartCount');
+
+        if (localStorage.getItem("shopping_product") == null) {
+            localStorage.setItem("shopping_product", JSON.stringify([]))
+        } else {
+            let product_item = JSON.parse(localStorage.getItem("shopping_product"))
+            displayProduct(product_item)
+        }
+
+        if (localStorage.getItem("cart") == null) {
+            localStorage.setItem("cart", JSON.stringify([]))
+        } else {
+            function counTotalItem() {
+                count = JSON.parse(localStorage.getItem("cart"));
+                cartCount.textContent = count.length;
+            }
+
+        }
+        counTotalItem()
+        async function callApi() {
+            let res = await fetch(url);
+            console.log('res ', res)
+            let data = await res.json();
+            console.log('data ', data)
+            let product_item = localStorage.setItem('shopping_product', JSON.stringify(data));
+            displayProduct(data)
+        }
+
+        function displayProduct(data) {
+            container.innerHTML = '';
+            console.log('eeeeeeee ', JSON.parse(localStorage.getItem("shopping_product")))
+            data.forEach((k, i) => {
+                let prodCard = document.createElement('div');
+                prodCard.setAttribute('id', 'prod_card')
+                let image = document.createElement('img');
+                let name = document.createElement('p');
+                name.setAttribute('id', 'product-title')
+                let price = document.createElement('p');
+                let addToCart = document.createElement('button');
+                let hr = document.createElement('hr')
+                addToCart.textContent = 'Add TO CART';
+                prodCard.setAttribute('id', 'prodCart');
+                addToCart.onclick = function () {
+                    cartProduct(k)
+                }
+
+
+                image.src = k.image;
+                name.textContent = k.title;
+                price.textContent = k.price + ' Inr';
+                prodCard.append(image, name, price, addToCart, hr);
+                container.append(prodCard)
+                // container.append(name)
+
+            })
+
+            function cartProduct(prod) {
+                let cart = JSON.parse(localStorage.getItem('cart'))
+                cart.push(prod);
+                console.log('i get details clicked prod ', prod)
+                localStorage.setItem('cart', JSON.stringify(cart))
+                counTotalItem()
+
+            }
+
+        }
+        function sortProducts() {
+            var data = JSON.parse(localStorage.getItem("shopping_product"))
+            console.log('dddd ', data)
+            let sortProduct = document.getElementById('sortProduct').value;
+            console.log('sorted value ', sortProduct);
+            let new_data;
+            if (sortProduct == `High-Low`) {
+                new_data = data.sort((a, b) => {
+                    return b.price - a.price;
+                })
+            } else if (sortProduct == `Low-High`) {
+                new_data = data.sort((a, b) => {
+                    return a.price - b.price;
+                })
+            } else {
+                new_data = data;
+            }
+            displayProduct(new_data)
+
+        }
+        function filterData() {
+            var data = JSON.parse(localStorage.getItem("shopping_product"))
+            console.log('dddd ', data)
+            let getSortValue = document.getElementById('filterProduct').value;
+            console.log('sorted value ', getSortValue);
+
+            let new_data = data.filter((prod) => {
+                if (getSortValue == `51-150`) {
+                    return prod.price >= 51 && prod.price <= 150
+                } else if (getSortValue == `0-50`) {
+                    return prod.price >= 0 && prod.price <= 50
+                } else if (getSortValue == `151-10000`) {
+                    return prod.price >= 151 && prod.price <= 10000
+                } else {
+                    return true
+                }
+
+            }).sort((a, b) => {
+                if (sortProduct == `High-Low`) {
+
+                    return b.price - a.price;
+
+                } else {
+
+                    return a.price - b.price;
+                }
+            })
+            console.log('displayProduct ', new_data)
+            displayProduct(new_data)
+
+        }
+    </script>
+</body>
+
+</html>

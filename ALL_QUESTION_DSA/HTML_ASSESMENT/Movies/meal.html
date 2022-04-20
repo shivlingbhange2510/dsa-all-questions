@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        img {
+            width: 200px;
+            height: 200px
+        }
+
+        #main {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="callApi()">show meals </button>
+    <br>
+    <div id="main">
+        <div>
+            <select onchange="selectMeal()" id="select_meal">
+                <option value='select meal' default>select meal</option>
+            </select>
+        </div>
+        <div id="container">
+
+
+        </div>
+    </div>
+
+    <script>
+        let url = `https://www.themealdb.com/api/json/v1/1/categories.php`;
+        let url2 = `https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`;
+        let list_catageory = `https://www.themealdb.com/api/json/v1/1/list.php?c=list`;
+        let container = document.getElementById('container');
+
+        if (localStorage.getItem('meal') === null) {
+            localStorage.setItem('meal', JSON.stringify([]))
+        } else {
+            let data = JSON.parse(localStorage.getItem('meal'));
+            showMeals(data)
+
+        }
+
+        if (localStorage.getItem('meal_catgeory') === null) {
+            localStorage.setItem('meal_catgeory', JSON.stringify([]))
+        } else {
+            allCatageory()
+        }
+
+        async function allCatageory() {
+            let res = await fetch(list_catageory)
+            let data = await res.json();
+            mealDropdown(data.meals)
+
+
+        }
+
+        async function callApi() {
+            let res = await fetch(url);
+            let data = await res.json();
+            console.log('data data.categories ', data.categories)
+            localStorage.setItem('meal', JSON.stringify(data.categories));
+            showMeals(data.categories)
+
+        }
+
+        function mealDropdown(data) {
+
+            let select_meal = document.getElementById('select_meal');
+            data.forEach((a, b) => {
+                let option = document.createElement('option');
+                option.textContent = a?.strCategory;
+                select_meal.appendChild(option);
+
+
+            })
+
+        }
+
+        function showMeals(data) {
+            container = document.getElementById('container');
+            container.textContent = ''
+            data.forEach(function (a, b) {
+                console.log(a.strMealThumb)
+                let div = document.createElement('div');
+                div.setAttribute('id', 'meal_card')
+                let title = document.createElement('h2');
+                let img = document.createElement('img');
+                let hr = document.createElement('hr')
+                img.src = a.strCategoryThumb;
+                title.textContent = a.strCategory;
+
+                div.append(img, title, hr);
+                container.append(div)
+            })
+        }
+
+        function selectMeal() {
+            let getMealName = document.getElementById('select_meal');
+            let f = getMealName.value;
+            console.log('selected value ', f)
+            let data = JSON.parse(localStorage.getItem('meal'));
+
+            let data2 = data.filter((a) => {
+                if (a.strCategory == f) {
+                    console.log('inside filter ', data.strCategory)
+                    return (
+                        a
+                    )
+                }
+
+            })
+            console.log('sortedMeal ', data2)
+            showMeals(data2)
+
+            // data.filter
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

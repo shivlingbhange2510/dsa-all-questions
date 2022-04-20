@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+         input {
+         width: 20%;
+         height: 30px;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         }
+         select {
+         width: 21%;
+         height: 30px;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         }
+         label {
+         font-size: 20px;
+         padding-top: 10px;
+         font-weight: bold;
+         }
+         button {
+         width: 100px;
+         height: 40px;
+         background-color: blue;
+         text-align: center;
+         border: none;
+         color: white;
+         cursor: pointer;
+         }
+         #main>div {
+         display: inline-block;
+         width: 100%;
+         }
+         table {
+         width: 100%;
+         }
+         table,
+         td {
+         border: 1px solid black;
+         border-collapse: collapse;
+         border-right: none;
+         border-left: none;
+         }
+         #product-table {
+         position: fixed;
+         top: 20px;
+         left: 50%;
+         }
+         #product-table>tbody>tr:nth-child(n) {
+         width: 200px;
+         padding-left: 20px;
+         text-align: center;
+         color: gold;
+         }
+         table {
+         text-align: center;
+         }
+         h1 {
+         color: blue;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="main">
+      <div sstyle='float: left;'>
+         <form id="prod-form">
+            <h1>Add Product</h1>
+            <label for='product_dropdown'>Category</label>
+            <div>
+               <select name="cars" id="prodcut_dropdown">
+            </div>
+            <br>
+            <option value="electonic">Electonic</option>
+            <option value="ferniture">Ferniture</option>
+            <option value="home-appliances">Home Appliance</option>
+            <option value="audi">Audi</option>
+            <div>
+            </select>
+            <div>
+            <labe for="title">Title</labe>
+            </div>
+            <div>
+            <input type="text" id='title' placeholder="enter title">
+            </div>
+            <div>
+            <labe for="description">Description</labe>
+            </div>
+            <div>
+            <input type="text" id='description' placeholder="Enter Description">
+            </div>
+            <div>
+            <labe for="price">Price</labe>
+            </div>
+            <div>
+            <input type="number" id='price' placeholder="Enter Price">
+            </div>
+            <div>
+            <button type="button" onclick="addProduct()" id='btn'>Add</button>
+            </div>
+         </form>
+         </div>
+         <div style="float: right; width:500px;" id='product-table'>
+            <h1>Product Info</h1>
+            <table>
+               <thead>
+                  <tr>
+                     <th>#</th>
+                     <th>Category</th>
+                     <th>Title</th>
+                     <th>Description</th>
+                     <th>Price</th>
+                  </tr>
+               </thead>
+               <tbody id='table-body'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <script>
+         if (localStorage.getItem('product_array') == null) {
+             localStorage.setItem('product_array', JSON.stringify([]))
+         }
+         var body = document.getElementById('table-body')
+         let index = 0;
+         function addProduct() {
+         
+             let category = document.getElementById('prodcut_dropdown').value;
+             let title = document.getElementById('title').value;
+             let description = document.getElementById('description').value;
+             let price = document.getElementById('price').value;
+         
+             console.log(category, title, description, price)
+             // console.log('index ', index);
+             let obj = {
+                 category: category,
+                 title: title,
+                 description: description,
+                 price: price
+         
+             }
+             let items = JSON.parse(localStorage.getItem('product_array'))
+             items.push(obj);
+             localStorage.setItem('product_array', JSON.stringify(items));
+             let row = document.createElement('tr');
+             let td1 = document.createElement('td');
+             let td2 = document.createElement('td');
+             let td3 = document.createElement('td');
+             let td4 = document.createElement('td');
+             let td5 = document.createElement('td');
+             td1.textContent = index++;
+             td2.textContent = category;
+             td3.textContent = title;
+             td4.textContent = description;
+             td5.textContent = price
+             row.append(td1, td2, td3, td4, td5);
+             body.append(row);
+             items = JSON.parse(localStorage.getItem('product_array'))
+         
+         
+         
+         
+         }
+         
+         
+      </script>
+   </body>
+</html>
+

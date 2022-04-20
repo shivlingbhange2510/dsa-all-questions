@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 90%;
+            margin: auto;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="container">
+
+        </div>
+    </div>
+
+    <script>
+        let a = `https://www.koimoi.com/wp-content/new-galleries/2021/10/the-face-off-poster-of-salman-khan-and-aayush-sharma-gives-us-a-glimpse-into-the-much-awaited-antim-trailer-001.jpg`;
+        let pushpa = b = `https://images.news18.com/ibnlive/uploads/2021/01/1611818353_pushpa-1.jpg?im=FitAndFill,width=1200,height=1200`;
+        let c = hero = `https://www.mmppicture.co.in/wp-content/uploads/2020/07/The-Hero-Action-Movie-Poster.jpg`;
+        let d = karana = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsM5PIW01wHnVeqLnzzE2hSxNylDQU25w0rQ&usqp=CAU`;
+        let e = rudra = `https://di5qs4dv32t01.cloudfront.net/wp-content/uploads/2022/02/Ajay.jpg`;
+        let f = bhuj = `https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/06/29/Pictures/_75bae9f8-ba0a-11ea-b411-fb55c265b659.jpg`;
+        let g = you = `https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/eb8inn9cr5hql2gr_1633453572.jpeg`;
+        let i = heropanti = `https://im.idiva.com/photogallery/2014/Dec/heropanti.jpg`;
+        let j = xyz = `https://im.idiva.com/photogallery/2014/Dec/heropanti.jpg`;
+
+        let name1 = ['antim', 'pushpa', 'hero', 'karana', 'rudra', 'bhuj', 'you', 'heropanti', 'xyz']
+        let images = [a, b, c, d, e, f, g, i, j]
+        console.log('first', pushpa);
+        function randomDate(start, end) {
+            return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+        }
+        let d1 = randomDate(new Date(2012, 0, 1), new Date());
+        console.log(' dddd 3', d1)
+        let object_array = [];
+        for (let i = 0; i < name1.length; i++) {
+            let obj = {};
+            obj['name'] = name1[i];
+            obj['date'] = randomDate(new Date(2012, 0, 1), new Date());
+            obj['img'] = images[i];
+            object_array.push(obj)
+        }
+        console.log('obbj ', object_array)
+        object_array.forEach((a, b) => {
+            let container = document.getElementById('container');
+            let div = document.createElement('div');
+            let img = document.createElement('img');
+            // let name2 = document.createElement('h3');
+
+            img.src = a.img;
+            // let x = a.date;
+            // let p = x.split(':');
+            var date = new Date(`${a.date}`);
+            let new_date = date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate()
+
+            let date2 = document.createElement('h5');
+            let hr = document.createElement('hr')
+            date2.textContent = new_date;
+            let name = document.createElement('h2');
+            name.textContent = a.name;
+            div.append(img, name, date2, hr);
+            container.append(div)
+
+
+        })
+    </script>
+</body>
+
+</html>

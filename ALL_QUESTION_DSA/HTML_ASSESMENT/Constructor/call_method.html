@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let akbar = {
+            name: 'akbar',
+            profession: 'chef',
+            city: ' mumbai',
+            interest() {
+                console.log(' I learn : ', this.profession)
+            }
+        }
+        let anthony = {
+            name: 'anthony',
+            profession: 'mugician',
+            city: 'Kashmir',
+          
+        }
+        let amar = {
+            name: 'amar',
+            profession: 'singer',
+            city: 'goa',
+         
+        }
+
+        let akbar1 = akbar.interest.call(anthony)
+        let akbar2 = akbar.interest.call(amar)
+        let amar1 = akbar.interest.call(anthony)
+        let amar2 = akbar.interest.call(akbar)
+
+        let anthony1 = akbar.interest.call(akbar);
+        let anthony2 = akbar.interest.call(amar)
+    </script>
+</body>
+
+</html>
