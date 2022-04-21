@@ -1,0 +1,2 @@
+) generate permutations of an array
+https://oj.masaischool.com/contest/3586/problem/04

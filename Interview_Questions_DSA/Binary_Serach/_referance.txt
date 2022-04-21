@@ -1,0 +1,10 @@
+1) masai oj Problem on BS
+https://oj.masaischool.com/contest/2657/problems
+ db.createUser({user:'shiv', pwd:'shiv@123',roles:['dbOwner']})
+
+2) Binary Search recursively
+https://oj.masaischool.com/contest/2657/problem/02
+
+3) Imp
+ https://oj.masaischool.com/contest/2657/problem/06
+
