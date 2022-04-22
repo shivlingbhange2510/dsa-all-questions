@@ -4,6 +4,7 @@ class Node{
         this.next=null;
     }
 }
+
 class LinkList{
     constructor(data){
         this.head=null;
