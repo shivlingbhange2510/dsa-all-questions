@@ -7,7 +7,7 @@ for (i = 0; i < a.length; i++) {
     for (j = i; j < a.length; j++) {
         str = str + a[j];
         count++;
-        var s = str.split("");
+        var s = str.split(""); 
         var str2 = "";
         for (l = s.length - 1; l >= 0; l--) {
             str2= str2 + s[l];  

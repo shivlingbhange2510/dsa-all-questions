@@ -1,0 +1,11 @@
+*)https://dev.to/wdiep10/how-to-create-a-hashmap-in-javascript-part-1-5cm5
+
+1) using hashing we can do 
+Insert 
+search 
+delete 
+operation in O(1) time complexity, that is why it is used widely.
+
+2) Hash maps are data structures that serve as efficient key-value stores. They
+   are capable of assigning and retrieving data in the fastest way possible.
+   This is because the underlying data structure that hash maps use is an array.

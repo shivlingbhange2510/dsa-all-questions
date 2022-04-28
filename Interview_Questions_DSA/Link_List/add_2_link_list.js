@@ -1,3 +1,5 @@
+// https://oj.masaischool.com/contest/3632/problem/08
+// you are given 2 linklist add 2 LL such that each node present onlu one digit in linkList 
 class Node{
     constructor(data){
         this.val=data;
@@ -6,7 +8,7 @@ class Node{
 }
 
 class LinkList{
-    constructor(data){
+    constructor(){
         this.head=null;
         this.size=0;
     }
@@ -29,9 +31,11 @@ class LinkList{
         let head2=null;
         let node= new Node(0);
         let temp=node;
+        this.size++;
         let cur1=l1.head;
         let cur2=l2.head;
         console.log('l11 ', cur1);
+        let p=1;
         while(cur1!=null||cur2!=null){
             let sum=0;
             // let x=
@@ -49,17 +53,26 @@ class LinkList{
             sum=sum%10;
             temp.next=new Node(sum);
             temp=temp.next;
+            p++;
         }
+        if(carry>0){
 
+        }
         if(node.val==0){
             node=node.next;
+            p--;
         }
+        if(carry>0){
+            temp.next=new Node(carry);
+            p++;
+        }
+        console.log('pp', p)
       return node
     }
 }
 let l1= new LinkList(), l2=new LinkList();
 let  l3=new LinkList();
-let j=5, i1=7
+let j=5, i1=7;
 for(let i=0;i<3;i++){
     l2.addData(j), l1.addData(i1);i1++;
     j++;
