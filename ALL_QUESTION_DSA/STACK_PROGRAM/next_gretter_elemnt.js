@@ -18,7 +18,7 @@ function nextGretter(n,a){
     })
     s=[], g=[];
     for(i=0;i<n;i++){
-        while(s.length>0&&s[s.length-1]>=a[i]){
+        while(s.length>0&&s[s.length-1]<=a[i]){
             s.pop();
         }
         if(s.length==0){
@@ -52,8 +52,13 @@ if (process.env.USER === "") {
     process.exit(0);
   });
 } 
+
+// runProgram(`1
+// 8
+// 39 27 11 4 24 32 32 1`)
+
 runProgram(`1
-8
-39 27 11 4 24 32 32 1`)
+5
+11 13 23 2 1`)
 
                                                                                                                                              

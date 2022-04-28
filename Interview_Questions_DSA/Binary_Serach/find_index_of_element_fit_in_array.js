@@ -18,4 +18,4 @@ while(low<high){
 }
 return ans;
 }
-console.log(insertElement([1,2,3,4,4,5,6,7], -1))
+console.log(insertElement([1,2,2,2,3,4,4,5,6,7,10,12], 6))
