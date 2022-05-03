@@ -1,25 +1,26 @@
-// next gretter element
-var arr = [11, 13, 21, 3];
-var n = arr.length, s=[];
-s.push(arr[0])
-
-for(i=1;i<n;i++){
+let a=[1,9,5,23,17,7];
+function nge(a){
     
-    if(s.length==0){
-        s.push(arr[i]);
-        continue;
-    }else{
-
-    while((s.length==0)==false&&s[s.length-1]<arr[i]){
-        console.log('s[s.length-1] ',s[s.length-1], 'arr[i]', arr[i],'s.pop() ')
-        s.pop();
-
+let n=a.length;
+a=a.reverse();
+let ans=[], st=[];
+for(let i = 0; i < n; i++){
+    if(st.length==0){
+        ans.push(-1);
+    }else if(st.length>0&&st[st.length-1]>a[i]){
+        ans.push(st[st.length-1]);
+    }else if(st.length>0&&st[st.length-1]<=a[i]){
+        while(st.length>0&&st[st.length-1]<=a[i]){
+            st.pop();
+        }
+        if(st.length==0){
+            ans.push(-1);
+        }else{
+            ans.push(st[st.length-1])
+        }
     }
-    s.push(arr[i]);
-
-    while(s.length!=0){
-        console.log('s[s.length-1] ', s[s.length-1],'--->##',-1);
-        s.pop()
-
-    }
+    st.push(a[i])
 }
+console.log(ans.reverse())
+}
+nge(a)
