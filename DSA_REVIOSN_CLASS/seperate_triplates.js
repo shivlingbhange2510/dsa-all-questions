@@ -17,5 +17,5 @@ const seperate1s0s2s = (a)=>{
     }
 console.log('object', a);
 }
-let x=[2, 1,2,0,1,2,0,1,2,0,0,0];
+let x=[2, 1,0,2,0,1,2,0,1,2,0,0,2];
 seperate1s0s2s(x)
