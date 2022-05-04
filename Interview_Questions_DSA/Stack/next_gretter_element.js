@@ -8,8 +8,8 @@ const nextGretter=(a)=>{
     let n=a.length;
     for(let i=0;i<n;i++){
        
-        while(st.length>0&&s[s.length-1]>a[i]){
-            s.pop();
+        while(st.length>0&&ans[ans.length-1]>a[i]){
+            ans.pop();
         }
         if(st.length==0){
             st.push(a[i]);
