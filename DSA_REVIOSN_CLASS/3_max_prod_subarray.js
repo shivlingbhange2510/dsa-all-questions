@@ -1,6 +1,6 @@
 // you are given array you have to find max product of subarray 
 // with brute force time complexcity is O(n^2) and space complexcity is O(1)
-let x=[1,6,2,0,7,9];
+let x=[1,6,0,0,7,1];
 const maxProd=(a)=>{
     let n =a.length;
     let cur_max_prod=a[0], cur_min_prod=a[0];
@@ -9,8 +9,8 @@ const maxProd=(a)=>{
 
     for(let i=0; i<n; i++){
         cur_max_prod=Math.max(prev_max_prod*a[i], prev_min_prod*a[i], a[i]);
-        cur_min_prod==Math.min(prev_max_prod*a[i], prev_min_prod*a[i], a[i])
-        ans=Math.max(cur_min_prod, cur_max_prod)
+        cur_min_prod=Math.min(prev_max_prod*a[i], prev_min_prod*a[i], a[i])
+        ans=Math.max(ans, cur_max_prod)
         prev_min_prod=cur_min_prod;
         prev_max_prod=cur_max_prod;
     }
