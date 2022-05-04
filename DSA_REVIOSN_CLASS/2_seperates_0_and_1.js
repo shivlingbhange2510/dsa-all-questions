@@ -13,7 +13,7 @@ const countAndFill=(a)=>{
     }
     console.log('zero', zero, 'one', one)
     for(let k=0;k<n;k++){
-        if(a[i])
+        // if(a[i])
     }
 }
 // with help of 2 pointer TC=0(n) and SP=O(1);
