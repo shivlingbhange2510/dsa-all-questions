@@ -1,6 +1,6 @@
 // you are given array and you have to jump 1 step and 2 step find min energy required to jump  frog
 // from starting to ending and
-// min energy is diff bewtween 2 indexces;
+// min energy is diff bewtween 2 indexces value of array;
 //
 const minEnergy=(a, idx)=>{
     if(idx==0){

@@ -16,21 +16,27 @@ function nextGretter(n,a){
     a=a.reverse(function(a,b){
         return a-b;
     })
-    s=[], g=[];
+  let  s=[], g=[];
+
+let ans=[];
     for(i=0;i<n;i++){
         while(s.length>0&&s[s.length-1]<=a[i]){
             s.pop();
         }
         if(s.length==0){
             g.push(-1)
+            ans.push(-1);
         }else{
             g.push(s[s.length-1])
+            ans.push(s[s.length-1])
         }
         s.push(a[i])
     }
     let d=g.reverse();
+    let ans2=ans.reverse();
     d=d.join(' ');
     console.log(d)
+    console.log('ans ', ans2)
 }
 if (process.env.USER === "") {
   runProgram(``);
