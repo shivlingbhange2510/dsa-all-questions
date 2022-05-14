@@ -1,0 +1,16 @@
+1) Pure functions ?
+pure functionin is function which didn't depends on extermal parameter or variable its only depend on its 
+arguments (parameter value)
+
+3) what is webpack'
+Webpack is a popular module bundling system built on top of Node.js. It can handle not only combination
+ and minification of JavaScript and CSS files, but also other assets such as image files (spriting) 
+ through the use of plugins.
+ 
+2) What is Pure Components ?
+pure components is a React components it didnot re render when we pass update same props and state values
+when the value of previous state and props are same then it didn't rerender.
+Pure Components restricts the re-rendering ensuring the higher performance of the Component.
+Features of React Pure Components
+    a)Prevents re-rendering of Component if props or state is the same
+    b) increase the performance of the Component/application

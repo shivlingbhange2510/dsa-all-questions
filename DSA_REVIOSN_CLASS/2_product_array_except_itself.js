@@ -4,7 +4,7 @@
 let a = [10, 3, 5, 6, 2];
 // [180,600,360,300,900]
 let n = a.length;
-bruteForce(a)
+bruteForce(a);
 function bruteForce(a){
   let ans = [];
   for (let i = 0; i < n; i++) {
@@ -41,4 +41,4 @@ for(let i=0;i<n;i++){
 
 console.log('final answ :', ans)
 }
-leftRightProd(a)
+leftRightProd(a);

@@ -1,0 +1,24 @@
+<html>
+<body>
+<input type = "button" id="debounce" value = "Debounce">
+<script>
+   var button = document.getElementById("debounce");
+var debounce = (func, delay) => {
+let Timer
+return function() {
+const context = this
+const args = arguments
+clearTimeout(Timer)
+Timer
+= setTimeout(() =>
+func.apply(context, args), delay)
+}
+}
+button.addEventListener('click', debounce(function() {
+alert("Hello\nNo matter how many times you" +
+"click the debounce button, I get " +
+"executed once every 2 seconds!!")
+}, 2000));
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onClick="useEvent()">
+        click me 
+    </button>
+    <input type="text" onkeyup="useEvent()" />
+    <script>
+        let val = document.getElementById('btn');
+        let count=0;
+         function clickMe(){
+            // console.log(v);
+            // window.alert('hii you clicked on me')
+            count++;
+            console.log('hii you clicked me', count)
+            fetch('https://fakestoreapi.com/products/1')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+        }
+
+        function throatting(fn, delay){
+            return function(){
+                document.getElementById('btn').disable=true
+                setTimeout(()=>{
+                    fn()
+                }, delay)
+            }
+        }
+        const useEvent=throatting(clickMe, 5000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+1)What is hoisting?
+
+its hosting is the default behaviour of javascript move variables, function and class at top level 
+when before the program is executed.
+variable define with var and function declarations hosted in javascript
+
+when we defined variables eith help of var key we can use this variables before declaring
+same thing happens with function.
+
+but in case of let and const we have declare variables before use it.
+otherwise it will give err.
+fun(){
+    console.log(data);
+    var data=123;
+    console.log(username); (here you will get error referance err)
+
+    let username='shiv'  
+}
+
+2)What is scoping?
+
+there are 3 types of scopes in JS that
+ a)function scopes
+ b) globle scopes
+ c) block scopes
+
+ when we defined any variables outside of function it has global scope we can access this variable anywhere in
+ program this is global scope;
+
+ when variables defined with let and const has block scopes we can access this variable outside of bloack;
+
+ when we defined any variable inside of function but outside of block then it has function scopes
+ e.g 1 function test(){            | e.g 1 |2  function check(){  
+     let a=10;                   |   for(let i=0;i<n;i++){
+                                 |         console.log(i);
+                                 |        }  
+      var b=20
+      var d=30;
+ }
+ eg1 has function scopes of variables and eg2 has block scope of i outside of this for loop value of i 
+ is can't be access
+
+3)How are var, let const different?
+main difference between this variable are scope of variable
+variable declares with let and const has block leavel scope and variable defined with var keyword
+has functional scope.
+when variable declare with const keyword we have have to declare and initialize variable same time;
+we can use variable before declare with let and const keyword.
+we can use variable before declare with var keyword.
+
+4)What are the two main differences in arrow functions ?
+the main difference between arrow functions functions and normal JS functions is
+a) no need function keyword to declare arrow fn;
+b) shorte syntax as compare to fn 
+c) if we have single return statement no need to return keyword even we can remove curly braces of
+arrow Fn ;
+
+5)Does Call apply bind work for arrow functions ?
+this method are not work in in arrow functions bcs in arrow FN it didn't have its own this keyword
+
+a) What is currying ?
+currying is a process of taking a function with multiple arguments and turn it into a sequence of
+function each function has single parameter;
+
+const calculate=(a)=> (b)=>(c)=>{return(a+b+c)};
+calculate(10)(20)(30);
+
+b) What does the this keyword mean?
+this is a new keyword introduced in javascript ES6 version ;
+this keyword inside function pointing towerd the global window object ;
+same keyword in clas and object is pointing towords local objects.
+in arrow function it didn't have this keyword'
+**) when we return this keyword in arrow functions it prints empty object ({  })
+
+c) what does async await mean ?
+async await this is new features added in JS ES6 version to handle asynchronous (promises) in javascript;
+when we put async before any function return value of function is object.
+
+d)What is event bubbling?
+event bubling is a method events
+ propagation  in HTML DOM API 
+ when we have nested HTML elemets and every element of some elements of html have event and some action will be triggered
+ when click on this if we have nsted event then firstly inner most HTML Elemets is called after that its parents 
+ event is called like this hirachy order it.
+
+ d) What is event loop ?
+event loops is a part of javascript program exicution when JS is a single thread language it handle 1 thread
+at one time in event loops it envoves propess when javascript  push each and every function inside a 
+call stack and execute 1 by 1 whne JS find something which are not part of JS like setTimeout, localStorage
+DOM manupulation this task or function is assign to WEB APi it push in web API now its responsibility of 
+WEB API to handle this task when this task execute by WEB API then it push in a queue and after overall 
+function exucted by callStack call stack is empty now this task inside que pushed in stack and then it execute
+ how javascript program 
+ event loops is a process of how javascript run program in call stack
+ e) Write a function called sleep that will return a promise, if you do not provide a number to the function,
+  then it will return an error and goto the catch block ? 
+
+
+const sleep=(time) =>(time)
+const promise = new Promise((res, rej)=>{
+  if(sleep()){
+    res('resolve promise')
+  }else{
+    rej('rejected get error')
+  }
+
+});
+promise.then((res)=>{
+  console.log('res : ', res)
+})
+.catch((er)=>{
+  console.log('error : ', er)
+})
+
+g)Create a Calculator class, it should be able to add, reduce multiply and divide. it should have a value
+ getter, and that should return final output. keep the history of changes made as well, and keep that
+ private, and a user should be able to see previous changes made to the value.
+
+ f) What are closures ?
+ *****https://www.codingem.com/javascript-closures/#:~:text=In%20JavaScript%2C%20a%20closure%20is%20a%20function%20inside,the%20variables%20and%20arguments%20of%20the%20outer%20function.**
+A closure is the combination of a function and the lexical environment within which that function was declared.
+ closures is a function inside FN and inner FN has acces of variable and parameter of it's parents FN;
+ this is know as closures
+class Calaculate {
+  constructor(){
+    this.value=0;
+  }
+  
+  add(a){
+    // return(this)
+    let c= a + this.value;
+    this.value=c;
+    console.log(this.value);
+  };
+  
+  sub(b){
+    let sub = this.value-b;
+    this.value=sub;
+    console.log('sub', this.value);
+  };
+  multiply(b){
+    let sub = this.value*b;
+    this.value=sub;
+    console.log('sub', this.value);
+  }
+    div(b){
+    let div = parseInt(this.value/b);
+    this.value=div;
+    console.log('sub', this.value);
+  }
+  getter(){
+    console.log('final value is : ', this.value)
+  }
+}
+
+let l = new Calaculate();
+
+function flattArray(a) {
+  return(
+    a.reduce((prev,cur)=>{
+      return(
+        prev.concat(Array.isArray(cur) ? flattArray(cur) : cur)
+        )
+    },[])
+    )
+}

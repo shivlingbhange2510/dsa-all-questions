@@ -1,0 +1,19 @@
+<html>
+<head>
+    <style type = "text/css">
+    .style{
+        display:table-cell;
+        border:1px solid black;
+        padding: 20px;
+        text-align:center;
+    }
+    </style>
+    </head>
+<body>
+<div class = "style"  onclick = "alert('Div clicked event bubling  outerMost div')">Div element
+<span class = "style" onclick ="alert('SPan clicked event bubling Inner Div')">span element
+<input type = "button"  value = "click me" onclick="alert('button clicked event bubling innerMost btn')">
+</span>
+</div>
+</body>
+</html>
