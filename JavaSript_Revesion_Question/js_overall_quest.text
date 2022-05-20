@@ -1,0 +1,154 @@
+A)What is HTTP ?
+The Hypertext Transfer Protocol (HTTP) is the foundation of the World Wide Web, and is used to load web
+ pages using hypertext links. HTTP is an application layer protocol designed to transfer information 
+ between networked devices and runs on top of other layers of the network protocol stack.
+
+ B) What is TCP ?
+ TCP is a protocol or standard used to ensure data is successfully delivered from one application 
+ or device to another. 
+ the Transmission Control Protocol that lies between the Application layer and network layer
+  used to provide reliable stream delivery service.
+C) Explain all the different HTTP methods?
+    a)The PUT method replaces all current representations of the target resource with the request payload.
+    b)PATH : this method used to replace particular object data with given filed;
+
+ D) what is HTTP Header ?
+ Http header is a addittional filed in http requeste and  respond that pasess addittional(context) 
+ information and meta data regarding request or response .
+
+E) Http respond code ?
+
+200 --> request succeeded.
+201 --> new resoure  is created
+204 --> There is no content to send for this request, 
+205 --> Reset Content
+
+301 -->  (Moved Permanently) The URL of the requested resource has been changed permanently.
+302 Found  --> This response code means that the URI of requested resource has been changed temporarily.
+
+400 Bad Request --> you are  response status code indicates that the server cannot or will not process the request 
+e.g ) you are hitting api and login with username passoword but there will be might be some syntax issues when 
+yoy are sending username, passoword to server (userName:'shiv',,passoword:1234);
+here is a syntax error bcs you put ,, after userName this is invalid syntax so that.
+eg) server req userName and pass but you only send userName that time it also give 404 err.
+
+401)401 Unauthorized : you are login in website with userName and pass but you are passing incorrect
+ userName or pass
+
+due to something that is perceived to be a client error (for example, malformed request syntax, invalid
+ request message framing, or deceptive request routing).
+
+ 403) Forbidden : in this case you are loged in website and you are try to do something but you dodn't have
+ access of this  for this we use this you get this error.
+ user access admin routes so you get 
+404 Not Found ---> The server can not find the requested resource. this means the URL is not recognized.
+
+403 Forbidden --> client didn't have aceess 0f  this content.
+405 Method Not Allowed
+
+500 Internal Server Error. The server has encountered a situation it does not know how to handle.
+
+you hitting 1 api api hits but this hit api call some another api and this other api get down some reson 
+that time you will get 500 er.
+502) bad getway.
+503 ) service unavailable .
+
+504) this is timeout request.
+e.g) you are hitting 1 api this API tooks lot of time this case you will get 504 error.
+
+e.g) your website is under maintance and you want did 
+501 Not Implemented The request method is not supported by the server and cannot be handled. The only
+ methods that servers are required to support (and therefore that must not return this code).
+
+505 HTTP Version Not Supported means whatever whaersion 
+client used for make nwk request is not supported for this change HTTPS version
+
+  F) difference between webSocket and Http request ?
+    
+    a) WebSocket is a bidirectional communication protocol that can send the data from the client to the server
+    or from the server to the client by reusing the established connection channel. The connection is kept 
+    alive until terminated by either the client or the server.
+    a) The HTTP protocol is a unidirectional protocol that works on top of TCP protocol which is a
+    connection-oriented transport layer protocol, we can create the connection by using HTTP 
+    request methods after getting the response HTTP connection get closed.
+
+    b) Almost all the real-time applications like (trading, monitoring, notification) services use WebSocket
+    to receive the data on a single communication channel.
+    b) Simple RESTful application uses HTTP protocol which is stateless.
+
+    c) All the frequently updated applications used WebSocket because it is faster than HTTP Connection.
+    c) When we do not want to retain a connection for a particular amount of time or reuse the connection for transmitting data; An HTTP connection is slower than WebSockets.
+
+1) what is HTML ?
+a) (HyperText Markup Language) is the most basic building block of the Web. It defines the meaning and 
+structure of web content. Other technologies besides HTML are generally used to describe a web page's 
+appearance/presentation (CSS) or functionality/behavior (JavaScript).
+ HTML, or HyperText Markup Language, allows web users to create and structure sections, 
+paragraphs, and links using elements, tags, and attributes.
+
+ 2) what is Hypertext ?
+  refers to links that connect web pages to one another, 
+ either within a single website or between websites.
+
+ 3)What is BEM?
+BEM stands for Block, Element, and Modifier. It’s a CSS naming convention for writing cleaner and 
+more readable CSS classes.
+
+4) different between display "none" and visibility "hide" ?
+The CSS properties for "display" and "visibility" both allow you to hide elements in a page's HTML, 
+but they differ in their implications for its appearance and function. Visibility: hidden hides the tag,
+ but it still takes up space and affects the page. In contrast, display: none removes the tag and its
+ effects for all intents and purposes, but the tag remains visible in the source code. Both approaches 
+ are different than simply removing the item(s) in questions
+ 
+ 5) Difference between flex and grid  (https://blog.yudiz.com/when-to-use-flex-or-grid/)
+The main difference between flex and grid is that flex uses a one dimensional (row or column) 
+layout while grid uses a two-dimensional (row and column) layout
+
+5) What is DNS
+. A system that stores domain names with its corresponding IP address is known as DNS (Domain name system)
+
+6) what is z-index;
+Elements with a bigger z-index will appear in front of the ones with a lower z-index, and if the
+ element has a negative z-index it will appear behind non-positioned elements.
+  
+ 7)what is stcking context ?
+The stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis
+ relative to the user, who is assumed to be facing the viewport or the webpage. HTML elements occupy this 
+ space in priority order based on element attributes.
+
+ 7)Explain briefly what happens when you hit a url? explain DNS (Domain Name System) lookup (URL – Uniform Resource Locator)
+https://r.search.yahoo.com/_ylt=Awr9Ikn.Xnli01MAjAFXNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZAMEc2VjA3Nj/RV=2/RE=1652150142/RO=10/RU=https%3a%2f%2fwww.freecodecamp.org%2fnews%2fwhat-happens-when-you-hit-url-in-your-browser%2f%23%3a~%3atext%3dDNS%2520lookup%2520to%2520find%2520IP%2520address%2520After%2520hitting%2cthe%2520domain%2520name.%2520DNS%2520helps%2520in%2520resolving%2520this./RK=2/RS=Fo2WCRrUTd49UQoPIHQ8Wv6Dx8U-
+
+8)Time to First Byte (TTFB) ?
+Time to First Byte (TTFB)  refers to the time between the browser requesting a page and when 
+it receives the first byte of information from the server.
+
+9)Page loading time
+Page loading time (or page loading speed) is the total time necessary for the browser to fully download 
+and display the content of a web page, measured in seconds. This parameter is calculated immediately after
+ a request is sent from the browser to the web server, and ends when the entire page has been fully 
+ displayed on the browser.
+
+ 10) What are three ways to reduce page load time?
+
+What are three ways to reduce page load time? Answer: Close. There are many answers here: Reduce image
+ sizes, remove unnecessary widgets, HTTP compression, put CSS at the top and script references at the 
+ bottom or in external files, reduce lookups, minimize redirects, caching, etc
+
+ 11)What do CDN or Content Delivery Networks do? When do you need a CDN?
+
+ A CDN (content delivery network) is a geographically distributed system of servers designed to reduce web 
+ loading times. By limiting the physical distance between an end-user and the server, you can deliver 
+ content securely and with minimal delay. Every time a user visits your website, the origin server must
+ respond and display your content. Without a CDN, all traffic is sent to the origin. In times of heavy 
+ traffic, the origin may become overloaded, which can cause your website to respond slowly or even go down.
+
+12 ) Why should I use a CDN? (content delivery network);
+Any organization that's concerned about performance, availability, scalability, and security can 
+benefit from a CDN. Here are just a few of the benefits of using a CDN:
+
+13)What is a service worker?
+A service worker is a type of web worker. It's essentially a JavaScript file that runs separately from
+ the main browser thread, intercepting network requests, caching or retrieving resources from the cache,
+and delivering push messages.
