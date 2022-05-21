@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/majority-element/
 // you are given array find majority elemet of array majority element is a[n]/2 of any one elemet
 // if frequancy of (a[i]) is greater than  >= n/2+1
 let a = [3, 3, 4, 2, 4, 4, 2, 4, 4];

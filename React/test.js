@@ -1,20 +1,44 @@
-// what is key when we use map list in react;
+let a = "pwwkew";
+// a = "abcabcbb";
+// "dvdf" op=3 getting 2
+// op---->3 getting--->2
+a="aab"
 
-let a=[
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-];
-let n=a.length;
-let n2=a[0].length
-
-for(let i=0;i<n;i++){
-    let ar=[];
-    for(let j=n2-1;j>=0;j--){
-        let m=a[j][i];
-        ar.push(m);
+function max(a){
+  let n=a.length;
+  let max=-1;
+  for(let i=0; i<n; i++){
+    let obj=[],  count=0;
+    for(let j=i+1; j< n; j++){
+      if(obj[a[i]]==undefined){
+        obj[a[i]]=1;
+      }
     }
+  }
 }
-//  [7,4,1],
-//   [8,5,2],
-//   [9,6,3]
+function maxLen(a) {
+let k=0;
+  let obj = [],
+    max = -1;
+  let n2 = a.length;
+  for (let i = 0; i < n2; i++) {
+    if (obj[a[i]] == undefined) {
+      obj[a[i]] = 1;
+    } else {
+       k = Object.keys(obj).length;
+      if (k > max) {
+        max = k;
+      }
+
+      obj = {};
+      obj[a[i]] = 1;
+    }
+  }
+   k = Object.keys(obj).length;
+
+  if (k > max) {
+    max = k;
+  }
+  console.log("mmm", max);
+}
+maxLen(a)

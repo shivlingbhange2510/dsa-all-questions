@@ -144,11 +144,11 @@ What are three ways to reduce page load time? Answer: Close. There are many answ
  respond and display your content. Without a CDN, all traffic is sent to the origin. In times of heavy 
  traffic, the origin may become overloaded, which can cause your website to respond slowly or even go down.
 
-12 ) Why should I use a CDN?
+12 ) Why should I use a CDN? (content delivery network);
 Any organization that's concerned about performance, availability, scalability, and security can 
 benefit from a CDN. Here are just a few of the benefits of using a CDN:
 
 13)What is a service worker?
 A service worker is a type of web worker. It's essentially a JavaScript file that runs separately from
  the main browser thread, intercepting network requests, caching or retrieving resources from the cache,
-  and delivering push messages.
+and delivering push messages.

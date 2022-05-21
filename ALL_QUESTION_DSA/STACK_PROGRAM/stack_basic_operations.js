@@ -28,8 +28,8 @@ for(i=1;i<=5;i++){
     s1.push(i)
 }
 console.log(s1)
-console.log(s1.peek());
-console.log(s1)
+console.log(s1.pop());
+console.log('after pop', s1)
 
 var s2 = new Stack();
 

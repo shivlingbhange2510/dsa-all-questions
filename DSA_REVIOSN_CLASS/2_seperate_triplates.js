@@ -1,5 +1,5 @@
 // you are given an array with 1, 0's and  2's deperate all 0's, 1's and 2's
-
+https://leetcode.com/problems/sort-colors/submissions/
 const seperate1s0s2s = (a)=>{
     let n=a.length;
     let l=0,m=0, h=n-1;

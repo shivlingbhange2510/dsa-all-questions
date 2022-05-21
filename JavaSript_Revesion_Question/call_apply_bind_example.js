@@ -1,4 +1,3 @@
-1)
 let obj={
     name:'raj',
     age:30,
@@ -44,6 +43,7 @@ console.log( test.details(10));
 // return other function ;
 
 
+
 var test = {
     name: "shivling",
     age: 22,
@@ -60,35 +60,4 @@ var test = {
   console.log( test.details(10));
 
 // apply method is same only deferrent is it accepts arguments as array of parameter
-
-
-
-1) What is the difference between readFile and readFileSync?
-In fs.readFile() method, we can read a file in a non-blocking asynchronous way, but in fs.readFileSync() 
-method, we can read files in a synchronous way, i.e. we are telling node.js to block other parallel
- process and do the current file reading process.
-
-
-2) difference between nodejs Engine Js Engine ?
-nodejs and javascript both use v8 engine but they are different in their functionality 
-a)JS Engine have DOM manupulation and web APi  it has window as globa; object;
-a)nodejs dodn't have DOM manupulation and it didn't have window as global object
-
-b)Another big difference is that in Node.js you control the environment. Unless you are building an open 
-source application that anyone can deploy anywhere, you know which version of Node.js you will run the
- application on. Compared to the browser environment, where you don't get the luxury to choose what browser
-  your visitors will use, this is very convenient.This means that you can write all the modern ES6-7-8-9 
-  JavaScript that your Node.js version supports.
-
-3) what is nodejs Process ?
-The process is a global object, an instance of EventEmitter, can be accessed from anywhere.
-Node.js provides the facility to get process information such as process id, architecture, platform,
- version, release, uptime,
-console.log(`Process Architecture: ${process.arch}`);  
-console.log(`Process PID: ${process.pid}`);  
-console.log(`Process Platform: ${process.platform}`);  
-console.log(`Process Version: ${process.version}`);  
-
-4) what is Node.js
- nodejs is a open source cross platform and runtime environment for developing server side application
 

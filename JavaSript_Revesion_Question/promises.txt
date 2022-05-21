@@ -1,0 +1,7 @@
+But that’s not all the then method does. It returns another promise, which resolves to the value 
+that the handler function returns or, if that returns a promise, waits for that promise and then resolves to its result.
+
+*) then) are called only when the action is successful, and rejections are automatically propagated to the new promise that is returned by then
+
+*)Promise.resolve is used to convert the value returned by handler to a promise if it isn’t already.
+

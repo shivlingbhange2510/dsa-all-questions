@@ -43,5 +43,5 @@ while(j<m){
 return x;
     
 }
-console.log(merge_sort([3,5,0,9,8]))
-console.log('p is ', p)
+console.log(merge_sort([6,3,8,9,4]))
+// console.log('p is ', p)

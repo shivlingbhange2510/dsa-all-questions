@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick="final()">call me</button>
+        <br>
+        <button onclick="throat()">call me Throtling</button>
+    </div>
+    <script >
+        function callMe(){
+            console.log('api is called')
+        }
+let c=0;
+// let c2=0;
+        const debounce = (fn, delay)=>{
+            let timer;
+
+            return function (){
+                console.log('ccc', c++)
+                timer&&clearTimeout(timer)
+               timer= setTimeout(()=>{
+                   console.log('this',this)
+                    fn.apply(this, arguments);
+                }, delay)
+            }
+        }
+let c2=0;
+        const throatling=(fn ,delay)=>{
+            let last_call=0;
+            return function(){
+                console.log('throatling ', c2++, Date.now()-last_call)
+                if(Date.now()-last_call>delay){
+                    last_call=Date.now()
+                    fn.apply(this, arguments);
+                }
+            }
+        }
+        const final = debounce(callMe, 2000);
+        const throat =throatling(callMe, 3000)
+    </script>
+</body>
+</html>

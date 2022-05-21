@@ -7,6 +7,7 @@ for (let i = 0; i < n; i++) {
     }
     if (i > 0) {
         a.push(1);
+        console.log('aa', a)
     }
     arr.push(a);
 

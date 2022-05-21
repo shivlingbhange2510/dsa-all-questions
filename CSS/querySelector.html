@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer>p{
+            color:red
+        }
+        div>p{
+            color:blue;
+            /* underline: */
+            /* text-decoration: ; */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="outer">
+       <p> 1st div</p>
+       <p> 2st div</p>
+       <h1>break</h1>
+       <p> 2st div</p>
+     </div>
+      
+      <hr>
+      <div class="outer2">
+        <p> 1st div</p>
+        <p> 2st div</p>
+        <p> 2st div</p>
+       </div>
+      
+    <script>
+        let f = document.querySelector('#last');
+        console.log('first', f)
+    </script>
+</body>
+</html>

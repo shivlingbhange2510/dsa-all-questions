@@ -1,0 +1,6 @@
+1) what is object :
+object is a real living or non live enity which has some property and also performs some action 
+
+2) Polymorpism
+polymorpism means many form . a subclass can defined it's own unquiue bahvavior and still sharemthe same functionality
+or bahavuour of its pre class;r
