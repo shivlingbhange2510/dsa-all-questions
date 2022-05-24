@@ -19,17 +19,15 @@ function maxSumSubAr(a) {
   console.log("first, ", max_sum);
 }
 
-// with bruteforce approach time complexcity is O(n^3) and space complexcity is O(n)
+// with bruteforce approach time complexcity is O(n^2) and space complexcity is O(1)
 const max_sum_bruteforce=(a)=>{
     let max_sum= Number.NEGATIVE_INFINITY;
     let n=a.length;
     for(let i=1;i<n;i++){
-        let ar=[];
+        let ar=sum;
         for(let j=i;j<n;j++){
-            ar.push(a[j])
-            sum=ar.reduce((prev, cur)=>{
-                return(prev + cur)
-            },0)
+            // ar.push(a[j])
+            sum=sum+a[j]
             // console.log('ss', sum)
             if(sum>max_sum){
                 max_sum = sum;

@@ -2,7 +2,7 @@
 // Output will be “i.xyz.this.xyz.very.xyz”
 
 let s = "rajasoftwarelabs";
-calculate fre of character and total sum of character  b=1, f=1, j=1, total=3
+// calculate fre of character and total sum of character  b=1, f=1, j=1, total=3
 // b=1, f=1, j=1, total=3
 // c=''
 

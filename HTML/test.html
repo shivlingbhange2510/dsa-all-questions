@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        Add prototype in array which will be apply for 
+        all array acts as inbuild method;
+    <script>
+        let a= [1,2,3,4];
+        Array.prototype.multiply=function(ar){
+            let x=[];
+            for(let i=0;i<ar.length;i++){
+                if(ar[i]%2==0){
+                    x.push(ar[i])
+                }
+            }
+            console.log(x)
+        }
+        let m=[12,15,16];
+        let s=[1,2,3,4,5,6,7,8]
+        console.log('first', a.multiply(m));
+        console.log('first cccc', a.multiply(s))
+    </script>
+</body>
+</html>

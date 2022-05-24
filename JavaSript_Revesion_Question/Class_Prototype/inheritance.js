@@ -26,7 +26,7 @@ class Manager extends Employee{
     }
     // super().details()
     static vari='hoiiii'
-    static (){
+    static staticMethodEx (){
         
     }
 }

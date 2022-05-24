@@ -12,6 +12,7 @@
      let num2=num.toString(2);
      a=a.toString(2);
      let manupulate = a&num2;
+     console.log("num : ", num , "bin : ", num2, " anding : ",manupulate)
      if(manupulate==0){
          console.log('even')
      }else{
@@ -19,4 +20,4 @@
      }
 
  }
- findOddEven(101)
+ findOddEven(10)

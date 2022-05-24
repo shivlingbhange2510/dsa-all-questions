@@ -1,0 +1,93 @@
+1) What is scoping?
+
+scoping is refere to the current context of code. which determines accessibility of code.
+a) local scop and --> are those declared inside of a block
+b) global scope  --> variable are those declared outside of a block 
+
+2) Does Call apply bind work for arrow functions?
+call apply and bind method didn't work for arrow functions because arrow functions dodn't have their
+own this keyword so that 
+  other reason is arrow functions don't have arguments property as normal function so that bind also did' work for
+
+3)create a custom method for an array called myMap, use prototype chain to achieve this 
+const arr = [1,2,3] , arr.myMap(a=>a*5) // [ 5, 10, 15 ]
+it should work in this manner
+
+Ans : 
+
+Array.prototype.myMap= function(callback){
+
+  let result=[];
+  for(let i=0;i<this.length;i++){
+      result.push(callback(this[i], i, this));
+      console.log("callback is : ", [i], i, this);
+  }
+  return(result);
+}
+let nn=[1,2,3];
+let h=nn.myMap(function(val, idx, ar){
+  return(val*2)
+})
+
+console.log("HH ", h)
+The above code  function in the argument should be called for each value in the array with 3 arguments:
+The current element
+Current element's index
+Entire Array
+
+
+below method is wrong
+Array.prototype.mymap = function(callback) {
+    for (let index = 0; index < this.length; index++) {
+        callback(this[index], index, this);
+    }
+}
+this refers to the array on whichmymap is done. this is the array itself.
+
+4)Write a function called sleep that will return a promise, if you do not provide a number 
+to the function, then it will return an error and goto the catch block
+
+5)What is event bubbling?
+Event bubbling is a type of event propagation where the event first triggers on the innermost 
+target element, and then successively triggers on the ancestors (parents) of the target element 
+in the same nesting hierarchy till it reaches the outermost DOM element or document object (Provided the handler is initialized).
+
+6)Explain promises to a 5 year old, with simple examples?
+before %5 yrs we use .then and .catch and finally for promises after ES6 we use async and await 
+
+answeing this question explain .then , .carth and finally in promises
+Having a hard time understanding how promises work with then, catch and finally.
+
+
+7) async and  await ?
+Async:
+It simply allows us to write promises based code as if it was synchronous and it 
+checks that we are not breaking the execution thread.
+
+Await:
+Await function is used to wait for the promise. It could be used within the async block only. 
+It makes the code wait until the promise returns a result. It only makes the async block wait.
+
+const getData = async() => {
+	var y = await "Hello World";
+	console.log(y);
+}
+
+console.log(1);
+getData();
+console.log(2);
+
+
+const getData = async() => {
+	var data = "Hello World";
+	return data;
+}
+
+getData().then(data => console.log(data));
+
+8) How do you declare private and static variables in classes
+
+Static keyword in JavaScript: The static keyword is used to define a static method or property of a 
+class. To call the static method we do not need to create an instance or object of the class.
+
+Why we create a static variable in JavaScript: We create a static variable in JavaScript to prevent replication, fixed-configuration, and it is also useful for caches. 

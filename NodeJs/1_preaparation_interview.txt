@@ -1,0 +1,17 @@
+1) blocking vs unBlocking nodejs
+https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/
+https://www.geeksforgeeks.org/blocking-and-non-blocking-in-node-js/
+
+2)What are examples of CPU intensive tasks?
+Sorting, search, graph traversal, matrix multiply are all CPU operations, a process is 
+CPU-intensive or not it depends on how much and how frequent are their execution.
+
+3) What is salt 
+Salt hashing is a technique in which we take the user entered password and a random string of 
+characters called as salt, hash the combined string with a sutaible hashing algorithm and store the
+ result in the database. 
+ 
+ 4)authentication and authorization?
+ authentication and authorization? Simply put, authentication is the process of verifying who
+  someone is, whereas authorization is the process of verifying what specific applications, files, 
+  and data a user has access to.

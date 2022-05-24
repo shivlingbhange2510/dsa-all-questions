@@ -1,0 +1,21 @@
+Hard binding
+The object of hard binding is to "hard" link a reference to this.
+Advantage: It's useful when you want to protect particular objects from being lost.
+Example:
+function Person(){
+ console.log("I'm " + this.name);
+}
+var person0 = {name: "Stackoverflow"}
+var person1 = {name: "John"};
+var person2 = {name: "Doe"};
+var person3 = {name: "Ala Eddine JEBALI"};
+var origin = Person;
+Person = function(){
+ origin.call(person0);
+}
+Person();
+//outputs: I'm Stackoverflow
+Person.call(person1);
+//outputs: I'm Stackoverflow
+Person.apply(person2);
+//outputs: I'm Stackoverflow

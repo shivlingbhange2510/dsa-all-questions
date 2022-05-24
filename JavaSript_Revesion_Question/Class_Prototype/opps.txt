@@ -3,4 +3,12 @@ object is a real living or non live enity which has some property and also perfo
 
 2) Polymorpism
 polymorpism means many form . a subclass can defined it's own unquiue bahvavior and still sharemthe same functionality
-or bahavuour of its pre class;r
+or bahavuour of its pre class;
+
+3) Methods
+ Methods can be defined in classes to perform a function and optionally return a result.
+They can receive arguments from the caller.
+
+
+#)If the subclass declares its own constructor then it must invoke the parents constructor via super()
+ before it can access this.

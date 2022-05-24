@@ -1,3 +1,6 @@
+1)what is server side rendering ?
+2) what is client side rendering ?
+
 1) Pure functions ?
 pure functionin is function which didn't depends on extermal parameter or variable its only depend on its 
 arguments (parameter value)

@@ -1,7 +1,36 @@
+#) The then and catch methods can be used to attach fulfillment and rejection callbacks:
+
+below function print after 10 second
+function wait(millis) {
+ return new Promise(resolve => setTimeout(resolve, millis));
+}
+const p = wait(5000).then(() => wait(4000)).then(() => wait(1000));
+p.then(() => { console.log("Hiiii") });
+
 But that’s not all the then method does. It returns another promise, which resolves to the value 
 that the handler function returns or, if that returns a promise, waits for that promise and then resolves to its result.
 
 *) then) are called only when the action is successful, and rejections are automatically propagated to the new promise that is returned by then
 
 *)Promise.resolve is used to convert the value returned by handler to a promise if it isn’t already.
-
+The Promise.all() static method accepts an iterable (e.g. an Array) of promises and returns a new promise, which
+resolves when all promises in the iterable have resolved, or rejects if at least one of the promises in the iterable
+have rejected.
+// wait "millis" ms, then resolve with "value"
+function resolve(value, milliseconds) {
+ return new Promise(resolve => setTimeout(() => resolve(value), milliseconds));
+}
+// wait "millis" ms, then reject with "reason"
+function reject(reason, milliseconds) {
+ return new Promise((_, reject) => setTimeout(() => reject(reason), milliseconds));
+}
+Promise.all([
+ resolve(1, 5000),
+ resolve(2, 6000),
+ resolve(3, 7000)
+]).then(values => console.log(values)); // outputs "[1, 2, 3]" after 7 seconds.
+Promise.all([
+ resolve(1, 5000),
+ reject('Error!', 6000),
+ resolve(2, 7000)
+]).then(values => console.log(values)) // does not output anything

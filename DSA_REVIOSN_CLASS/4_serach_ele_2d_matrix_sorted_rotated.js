@@ -7,8 +7,9 @@ let a = [
   [27, 29, 37, 48],
   [32, 33, 39, 50],
 ];
+
 k = 25;
-a[0][3];
+// a[0][3];
 let n = a.length;
 const findKey = (a, k) => {
   let i = 0;
@@ -24,4 +25,25 @@ const findKey = (a, k) => {
   }
   return -1;
 };
-console.log(findKey(a, 330));
+
+
+function sorted(a,k) {
+    
+  let n=a.length; j=a[0].length-1;
+  let t=32;
+  let i=0;
+  while(j>=0&&i<n){
+    
+    if(t==a[i][j]){
+      console.log('get target : ', i,j);
+    }
+    if(t<a[i][j]){
+      j--
+    }else{
+      i++;
+    }
+    
+  }
+}
+sorted(a,t)
+console.log(findKey(a, t));
