@@ -1,4 +1,69 @@
 
+console.log(Object.getPrototypeOf({}) ==
+Object.prototype);
+// → true
+console.log(Object.getPrototypeOf(Object.prototype));
+// → null
+// When an object gets a request for a property that it does not have, its prototype will be searched
+//  for the property, then the prototype’s prototype, and so on.
+
+// Such a prototype object will itself have a prototype, often Object.prototype, so that it still 
+// indirectly provides methods like toString.
+// ****************called function outside in object is valid *****************
+
+function speak(line) {
+  console.log(`The ${this.type} rabbit says '${line}'`);
+}
+let whiteRabbit = {type: "white", speak};
+let hungryRabbit = {type: "hungry", speak};
+
+whiteRabbit.speak("Oh my ears and whiskers, " +
+                  "how late it's getting!");
+// → The white rabbit says 'Oh my ears and whiskers, how
+//   late it's getting!'
+hungryRabbit.speak("I could use a carrot right now.");
+// → The hungry rabbit says 'I could use a carrot right now.'
+
+// ****************create your own map method name is myMap*****************
+var sumTwoNumbers = function sum (a, b) {
+  return a + b;
+ }
+ sum(1, 3);
+// above code give referance error use below syntax;
+// sumTwoNumbers(1,3)
+
+var say = function (times) {
+  if (times > 0) {
+  console.log('Hello!');
+  say(times - 1);
+  }
+ }
+ var sayHelloTimes = say;
+ say = "oops";
+ sayHelloTimes(2);
+//  Hello!
+// Uncaught TypeError: say is not a function
+// The outer variable can even have the same name as the function
+// as they are contained in different scopes
+var say = function say (times) {
+  if (times > 0) {
+  console.log('Hello!');
+  // this time, 'say' doesn't use the outer variable
+  // it uses the named function
+  say(times - 1);
+  }
+ }
+ var sayHelloTimes = say;
+ say = "oops";
+//  sayHelloTimes(2)
+// op  ---> Hello! Hello
+// ****************Symbol a property name *****************
+let sym = Symbol("name");
+console.log(sym == Symbol("name"));
+// → false
+Rabbit.prototype[sym] = 55;
+console.log(blackRabbit[sym]);
+// → 55
 // ****************create your own map method name is myMap*****************
 Array.prototype.myMap= function(callback){
 

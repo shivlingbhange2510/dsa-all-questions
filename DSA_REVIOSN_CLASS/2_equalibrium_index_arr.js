@@ -28,7 +28,7 @@ const bruteForce=(a)=>{
 
 }
 
-const leftAndRightSum=(a)=>{
+const leftAndRightSum=(a)=>{ 
     let rSum=[], lSum=[], ans=-1;;
    let  sum1=0, sum2=0;
     for(let i=0;i<n;i++){

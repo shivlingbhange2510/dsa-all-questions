@@ -2,7 +2,7 @@ let a = [1, 2, 3, 4, 15, 16, 100];
 let n = a.length;
 let low = 0,
   high = n - 1;
-let k = 0;
+let k = 16;
 function check(a, low, high, k) {
   let mid = low + parseInt((high - low) / 2);
   if (low <= high) {

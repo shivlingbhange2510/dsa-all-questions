@@ -35,7 +35,7 @@ const rotateKT=(a,k)=>{
     }
     console.log('final rotataion', a)
 }
-let  a=[1,2,3,4,5,6],k=1;
+let  a=[1,2,3,4,5,6],k=2;
 rotateKtimes(a, k);
 
 rotateKT(a,k)

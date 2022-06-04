@@ -1,66 +1,85 @@
-// console.log("first")
-// 7
-// number of ways you can arrange number
-function check(n,idx, dp) {
-  if(idx==0){
-    return(1);
+
+let x = [9, -4, 2, 01, -9];
+function maxArprodu(a) {
+  let cur_max = a[0], cur_min = [0];
+  let prev_max = a[0], prev_min = a[0], ans = a[0];
+  let n = a.length;
+  for (let i = 1; i < n; i++) {
+
+    cur_max = Math.max(prev_min * a[i], prev_max * a[i], a[i]);
+    cur_min = Math.min(prev_min * a[i], prev_max * a[i], a[i]);
+    ans = Math.max(cur_max, ans);
+    prev_max = cur_max, prev_min = cur_min;
   }
-  if(idx<0){
-    return(0);
-  }
-  
-  let k=check(n,idx-1, dp) + check(n,idx-2, dp) +check(n,idx-3, dp);
-  return(dp[idx]=k)
-  // body...
+  console.log("first", ans);
 }
-// let dp= new Array(n);
-// console.log("KK", check(n, n, dp));
-
-// var name='shivling';
-
-// function check(p){
-//   var name="raj";
-//   console.log(name)
-// }
-// check();
-// console.log("name : ", name)
-
-// let a=[1,2,3];
-// // a.prototype.xx=fu
-// Array.prototype.myMap=function(x){
-//   let u=[];
-//   for(let i=0;i<x.length;i++){
-//     u.push(x[i]);
-//   }
-//   return u;
-// }
-// a.prototype.myMap(a)
-// console.log(a,a.prototype.toString())
-
-let a=[1,2,4];
-Array.prototype.myMap=function(){
-  let a=this;
-  // this;
-  let x=[];
-  for(let i=0;i<a.length;i++){
-    x.push(a[i]);
+// maxArprodu(x)
+function seperate(a) {
+  let n = a.length;
+  let l = 0, r = n - 1;
+  while (l < r) {
+    while (a[l] == 0 && l < r) {
+      l++;
+    }
+    while (a[r] == 1 && l < r) {
+      r--;
+    }
+    if (a[l] = 1) {
+      [a[l], a[r]] = [a[r], a[l]];
+      r--;
+      // l++;
+    } else {
+      // l++
+    }
   }
-  // console.log("Result : ", x);
+  console.log("seperate : ", a)
 }
-// console.log('first',a.myMap(a))
-
-Array.prototype.myMap= function(callback){
-
-  let result=[];
-  for(let i=0;i<this.length;i++){
-      result.push(callback(this[i], i, this));
-      console.log("callback is : ", [i], i, this);
+function triplate(a) {
+  let n = a.length;
+  let l = 0, h = n - 1, m = 0;
+  while (m <= h) {
+    // [1,0,1]
+    if (a[m] == 0) {
+      [a[l], a[m]] = [a[m], a[l]];
+      l++, m++
+    } else if (a[m] == 2) {
+      [a[m], a[h]] = [a[h], a[m]];
+      h--;
+    } else {
+      m++;
+    }
   }
-  return(result);
+  console.log("triplate : ", a);
 }
-let nn=[1,2,3];
-let h=nn.myMap(function(val, idx, ar){
-  return(val*2)
-})
+let t = [1, 0, 2, 1, 0, 2, 1, 1, 00, 0];
+// triplate(t)
+let s = [1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1];
+// seperate(s)
 
-console.log("HH ", h)
+function findMej(a) {
+  let n = a.length;
+  let index = 0, count = 1;
+
+  for (let i = 1; i < n; i++) {
+    if (a[index] == a[i]) {
+      count++;
+    } else {
+      count--;
+    }
+    if (count <= 0) {
+      count = 1, index = i;
+    }
+  }
+  console.log("Index : ", index, "val : ", a[index], 'len : ', n)
+  let c = 0;
+  for (let i = 0; i < a.length; i++) {
+    //  const element = array[i];
+    if (a[index] == a[i]) {
+      c++;
+    }
+
+  }
+  console.log("FFF",c>=parseInt(n / 2 +1) ?  c : -1)
+}
+let m = [1, 2,4, 3, 4, 5, 4, 4, 4, 1, 4]
+findMej(m)

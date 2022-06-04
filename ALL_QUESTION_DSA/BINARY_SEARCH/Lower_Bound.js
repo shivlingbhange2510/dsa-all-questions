@@ -20,4 +20,6 @@ function lower_bound(a, n, k) {
     }
     return ans_lb+1;
 }
-console.log(lower_bound([1,2,3,3,3,6,6,6,6,8,9,9,12,34,38,40],15, 6))
+let a=[1,2,7,9,9,10,12];
+console.log(lower_bound(a,a.length, 12))
+// console.log(lower_bound([1,2,3,3,3,6,6,6,6,8,9,9,12,34,38,40],15, 40))

@@ -1,7 +1,7 @@
 // you are given an array find the key which is occured at last position;
 
 let a = [1, 3, 4, 5, 6, 6, 6, 6, 7, 12, 34, 49];
-let k = 7;
+let k = 6;
 const findHighKeyIndex = (a,k) => {
   let n = a.length;
   let low = 0,
@@ -20,3 +20,4 @@ const findHighKeyIndex = (a,k) => {
   }
   console.log("last freq element : ", ans + 1);
 };
+findHighKeyIndex(a,k)

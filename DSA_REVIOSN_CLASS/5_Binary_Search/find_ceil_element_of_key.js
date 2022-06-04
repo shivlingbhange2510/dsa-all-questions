@@ -1,9 +1,12 @@
-let a=[1,2,3,4,8,10,10,12,29];
-let key=6;
+// let a=[1,2,3,4,8,10,10,12,29];
+let a=[1,2,3,4];
+
+let key=30;
 let n=a.length, low=0, high=n-1;
 
 function ceilValue(a,low, high,key){
     // let n=a.length, low=0, high=n-1;
+    console.log(("ar leng", n))
 while (low <= high) {
     let mid = low + parseInt((high - low) / 2);
 

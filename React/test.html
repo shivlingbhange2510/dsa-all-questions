@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick="final()">Submit </button>
+        <input type="text" placeholder="debouncing...." onkeyup="final()" />
+        <hr/>
+        <button onclick="final2()">Submit </button>
+        <input type="text" placeholder="throatling...." onkeyup="final2()" />
+    </div>
+    <script>
+        let c=0;
+        function callApi(){
+       
+            console.log("calling api .....")
+        }
+        // setTime
+        const debouncingFn=(fn, delay)=>{
+            let tid;
+            return function(){
+                c++; console.log('ccc', c)
+                clearTimeout(tid)
+                let context = this, ar= arguments;
+              tid=  setTimeout(()=>{
+                    fn()
+                }, delay)
+            }
+        }
+        let final = debouncingFn(callApi, 1000)
+        let c2=0;
+        const throatLLing=(fn, delay)=>{
+            let call_time=0;
+            return function (){
+
+              
+                console.log("throattling is : " , c2++)
+                if(Date.now()-call_time>delay){
+                    call_time=Date.now();
+                    // setTimeOut(()=>{
+                    fn.apply(this, arguments)
+                    console.log("arg : ", arguments)
+                // }, delay)
+
+                }
+            }
+        }
+        const final2= throatLLing(callApi, 1000)
+    </script>
+</body>
+</html>

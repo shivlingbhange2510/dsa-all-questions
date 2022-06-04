@@ -1,6 +1,7 @@
 // Q) ypu are given an array find the pair whose sum is close to zero;
 let a = [1, 2, 6, 9, -5, 0];
 let n = a.length;
+a=[1, 60, -10, 70, -80, 85]
 const bruteForce=(a)=>{
     let maxSum= Number.POSITIVE_INFINITY;
 let a1, a2;

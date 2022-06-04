@@ -3,6 +3,7 @@
 // time complacity O(n^2)
 //space complexcity O(1);
 // selection sort doesnot maintai order of algorith this is drawback [12 18 17 6 46] sort modules value by 6 
+
 let a=[3,4,0,1,0, -10];
 a=[3,4,7,6,5,0,1]
 // a=['p','aa','az','ab','aba','bb']

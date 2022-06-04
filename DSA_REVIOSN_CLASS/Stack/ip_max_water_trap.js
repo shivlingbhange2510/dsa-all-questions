@@ -1,3 +1,6 @@
+
+// https://www.geeksforgeeks.org/trapping-rain-water/
+
 // you are given array of bulding height lengh of ith building is height of ith array you have to find 
 // out (maximum) sum of all the water traped in bulding.
 // Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.

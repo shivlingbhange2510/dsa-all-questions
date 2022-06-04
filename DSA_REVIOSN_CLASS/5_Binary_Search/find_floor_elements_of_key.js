@@ -1,7 +1,9 @@
 // you are given an array find  and first element which are less tha key
 // all the elements which are less than(floor of key) key;
 let a = [1,3,5,7,9,10];
-let k = 4;
+a=[1,3,5,6];
+// let k = 4;
+k=2
 // in this above array key is 6 all elemets which are les than 6 are (1,3,4,5) latest value which are less than key value;
 // key is 5
 

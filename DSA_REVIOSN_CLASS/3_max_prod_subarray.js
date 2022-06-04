@@ -7,7 +7,7 @@ const maxProd=(a)=>{
     let prev_max_prod=a[0], prev_min_prod=a[0];
     let ans=a[0];
 
-    for(let i=0; i<n; i++){
+    for(let i=1; i<n; i++){
         cur_max_prod=Math.max(prev_max_prod*a[i], prev_min_prod*a[i], a[i]);
         cur_min_prod=Math.min(prev_max_prod*a[i], prev_min_prod*a[i], a[i])
         ans=Math.max(ans, cur_max_prod)

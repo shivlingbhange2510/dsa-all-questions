@@ -22,15 +22,17 @@ const two2Pointer =(a,t)=>{
     // [1,  2,  3,  4,   5]
     let ans=-1;
     let n=a.length 
+    let c=0;
     for(let i=0;i<n;i++){
         let x=a[i];
         let l=i+1, r=n - 1;
         while(l<r){
             let sum=a[i]+a[l]+a[r];
             if(sum==t){
-                return ans=true;
+                // return ans=true;
+                c++;
                 // console.log('first', a[i],a[l], a[r])
-                l++,r++;
+                l++,r--;
             }
            else if(sum<t){
                 l++;
@@ -40,8 +42,13 @@ const two2Pointer =(a,t)=>{
             }
         }
     }
-    return ans
+    return (c)
 }
-let y=[1,2,3,4,5,6,8,10,12,14,19,20], t=16;
-console.log(bruteForce(y, t))
+let y1=[1,2,3,4,5,6,8,10,12,14,19,20], t=16;
+// 4
+// -1 -1 -2 3
+let y=[-1,-1,-2, 3];
+ t=0;
+y=y.sort((a, b) => a - b)
+// console.log(bruteForce(y, t))
 console.log(two2Pointer(y,t))

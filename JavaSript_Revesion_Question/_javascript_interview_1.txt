@@ -1,3 +1,5 @@
+https://eloquentjavascript.net/06_object.html
+
 1) What is scoping?
 
 scoping is refere to the current context of code. which determines accessibility of code.
@@ -61,6 +63,8 @@ Having a hard time understanding how promises work with then, catch and finally.
 
 7) async and  await ?
 Async:
+ASYNC AND AWAIT this is introduced in ES6 version of a javaScript and it is simplified syntax of write promises
+without using old promises methods .then and .cath here async write a promises 
 It simply allows us to write promises based code as if it was synchronous and it 
 checks that we are not breaking the execution thread.
 
@@ -90,4 +94,5 @@ getData().then(data => console.log(data));
 Static keyword in JavaScript: The static keyword is used to define a static method or property of a 
 class. To call the static method we do not need to create an instance or object of the class.
 
-Why we create a static variable in JavaScript: We create a static variable in JavaScript to prevent replication, fixed-configuration, and it is also useful for caches. 
+Why we create a static variable in JavaScript: We create a static variable in JavaScript to prevent
+ replication, fixed-configuration, and it is also useful for caches. 

@@ -1,27 +1,29 @@
-let s = "nitin";
-function subSeq(s) {
-  let n = s.length;
 
-  for (let i = 0; i < n; i++) {
-    let s1 = "";
-    for (let j = i; j < n; j++) {
-      s1 = s1 + s[j];
-      if (pali(s1)) {
-        console.log("palindrom ", s1);
-      }
-    }
+function findPivot(arr, start, end){
+
+  let mid = start + parseInt((end - start) / 2)
+  if (end < start) {
+    return (-1);
+  }
+  if (start == end) {
+    return (start)
+  }
+
+  if (mid < end && arr[mid + 1] < arr[mid]) {
+    return (mid);
+  }
+  if (mid > start && arr[mid] < arr[mid - 1]) {
+    return (mid - 1);
+  }
+
+  if (arr[start] > arr[mid]) {
+    return (findPivot(arr, start, mid - 1))
+  }
+  else {
+    return (findPivot(arr, mid + 1, end))
   }
 }
-function pali(s) {
-  let n = s.length;
 
-  for (let i = 0; i < parseInt(n / 2); i++) {
-    if (s[i] != s[n - i - 1]) {
-      return false;
-    }
-  }
-  return true;
-}
+let a = [3, 4, 5, 1, 2];
 
-// console.log('pp', pali('shihs'));
-subSeq(s)
+console.log("xx", findPivot(a, 0, a.length - 1));
