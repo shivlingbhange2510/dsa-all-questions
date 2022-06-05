@@ -1,56 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div>
         <button onclick="final()">Submit </button>
         <input type="text" placeholder="debouncing...." onkeyup="final()" />
-        <hr/>
+        <hr />
         <button onclick="final2()">Submit </button>
         <input type="text" placeholder="throatling...." onkeyup="final2()" />
     </div>
     <script>
-        let c=0;
-        function callApi(){
-       
+        let c = 0;
+        function callApi() {
+
             console.log("calling api .....")
         }
         // setTime
-        const debouncingFn=(fn, delay)=>{
+        const debouncingFn = (fn, delay) => {
             let tid;
-            return function(){
+            return function () {
                 c++; console.log('ccc', c)
                 clearTimeout(tid)
-                let context = this, ar= arguments;
-              tid=  setTimeout(()=>{
+                let context = this, ar = arguments;
+                tid = setTimeout(() => {
                     fn()
                 }, delay)
             }
         }
-        let final = debouncingFn(callApi, 1000)
-        let c2=0;
-        const throatLLing=(fn, delay)=>{
-            let call_time=0;
-            return function (){
+        let final = debouncingFn(withAxios, 1000)
+        let c2 = 0;
+        const throatLLing = (fn, delay) => {
+            let call_time = 0;
+            return function () {
 
-              
-                console.log("throattling is : " , c2++)
-                if(Date.now()-call_time>delay){
-                    call_time=Date.now();
+
+                console.log("throattling is : ", c2++)
+                if (Date.now() - call_time > delay) {
+                    call_time = Date.now();
                     // setTimeOut(()=>{
                     fn.apply(this, arguments)
                     console.log("arg : ", arguments)
-                // }, delay)
+                    // }, delay)
 
                 }
             }
         }
-        const final2= throatLLing(callApi, 1000)
+        const final2 = throatLLing(withAxios, 1000)
+        // 
+        // function check() {
+        //     fetch(`https://jsonplaceholder.typicode.com/posts`)
+        //         .then((res) =>
+        //             res.json())
+        //         .then((res) => {
+        //             // let x= res
+        //             console.log("res", res);
+        //         })
+        // }
+        // // check();
+        async function withAxios() {
+
+
+            try {
+                let res = await axios.get(`https://jsonplaceholder.typicode.com/posts`)
+                let response = await res.data;
+                console.log("res is axios : ", response)
+            } catch (error) {
+                console.log("err : ", error)
+            }
+        }
+        withAxios()
     </script>
 </body>
+
 </html>
+<!-- 
+colorToken : 
+queston ask : 
+a) what you like in javascript
+1) what is event loop ?
+2) what is difference between async and Promises
+3) given an array of all dataType tell me falsy value, segeregate no of Numbers, string, bollean 
+value present in this (means write program for calculate frequancy of dataType);
+I/p : let a= [0,1,2,3, '', 'a','b','c',true, false, undefined,NaN, null, {}, []];
+op  : obj { number: 5, string: 4, boolean: 2, undefined: 1, object: 3 } ;
+4) return string is anagram string; -->
