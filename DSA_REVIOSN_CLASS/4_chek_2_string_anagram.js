@@ -1,7 +1,7 @@
 // you are given 2 string check this 2 string are anagram or not;
 // with bit manupulation time complexcity is O(n)   space complexcity is O(1)
-let s1 = `abcccd`,
-  s2 = `abccd`;
+let s1 = `shiv`,
+  s2 = `livs`;
 function anagramBitManupulation(s1, s2) {
   if (s1.length !== s2.length) {
     return `Not anagram string`;
@@ -15,8 +15,8 @@ function anagramBitManupulation(s1, s2) {
   if (r == 0) {
     return `anagram string`;
   } else {
-    return `Not anagram string`;
+    return `Not anagram string 2`;
   }
 }
 
-console.log(checkAnagramBitManupua(s1, s2));
+console.log(anagramBitManupulation(s1, s2));
